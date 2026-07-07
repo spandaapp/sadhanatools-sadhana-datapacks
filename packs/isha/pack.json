@@ -1,0 +1,279 @@
+﻿{
+    "schemaVersion":  1,
+    "id":  "isha",
+    "displayName":  "Isha",
+    "description":  "Morning and evening sadhana alarms, moods, timers, and audio/photo albums.",
+    "moodNames":  [
+                      "Joy",
+                      "Sad",
+                      "Fear",
+                      "Anger",
+                      "Grace",
+                      "Confusion",
+                      "Lust",
+                      "Attention"
+                  ],
+    "practices":  [
+
+                  ],
+    "smartTimers":  [
+                        {
+                            "label":  "21 minute practice",
+                            "beepOffsetsMs":  [
+                                                  360000,
+                                                  660000,
+                                                  840000,
+                                                  900000,
+                                                  1260000
+                                              ],
+                            "sortOrder":  0,
+                            "durationMs":  1260000
+                        },
+                        {
+                            "label":  "23 minute practice",
+                            "beepOffsetsMs":  [
+                                                  1200000,
+                                                  1380000
+                                              ],
+                            "sortOrder":  1,
+                            "durationMs":  1380000
+                        }
+                    ],
+    "schedules":  [
+                      {
+                          "label":  "5 min chimes (6am–10pm)",
+                          "audioAssetPath":  "audio/albums/interval-ringtones/Bell.mp3",
+                          "type":  "INTERVAL",
+                          "intervalMillis":  300000,
+                          "intervalEndMinutesOfDay":  1320,
+                          "intervalStartMinutesOfDay":  360,
+                          "volume":  0.5,
+                          "vibrate":  false
+                      },
+                      {
+                          "label":  "Hourly chimes (all day)",
+                          "audioAssetPath":  "audio/albums/interval-ringtones/Bell.mp3",
+                          "type":  "INTERVAL",
+                          "intervalMillis":  3600000,
+                          "intervalEndMinutesOfDay":  1440,
+                          "intervalStartMinutesOfDay":  0,
+                          "volume":  0.5,
+                          "vibrate":  false
+                      },
+                      {
+                          "notificationBody":  "Time for your morning practice",
+                          "type":  "REGULAR",
+                          "regularMinute":  0,
+                          "audioAlbumId":  "00000000-0000-4000-a000-000000000001",
+                          "label":  "Morning sadhana (5:00 AM)",
+                          "useRandomAlbum":  true,
+                          "regularHour":  5,
+                          "backgroundAlbumId":  "00000000-0000-4000-a000-000000000002",
+                          "notificationTitle":  "Morning sadhana",
+                          "useRandomBackgroundAlbum":  true,
+                          "audioAssetPath":  "audio/albums/nature/nature_1.mp3",
+                          "volume":  0.5,
+                          "vibrate":  false
+                      },
+                      {
+                          "notificationBody":  "Time for your evening practice",
+                          "type":  "REGULAR",
+                          "regularMinute":  20,
+                          "audioAlbumId":  "00000000-0000-4000-a000-000000000001",
+                          "label":  "Evening sadhana (6:20 PM)",
+                          "useRandomAlbum":  true,
+                          "regularHour":  18,
+                          "backgroundAlbumId":  "00000000-0000-4000-a000-000000000002",
+                          "notificationTitle":  "Evening sadhana",
+                          "useRandomBackgroundAlbum":  true,
+                          "audioAssetPath":  "audio/albums/nature/nature_1.mp3",
+                          "volume":  0.5,
+                          "vibrate":  false
+                      }
+                  ],
+    "widgets":  [
+                    {
+                        "preset":  "moon_phase"
+                    }
+                ],
+    "audioAlbum":  {
+                       "albumId":  "00000000-0000-4000-a000-000000000001",
+                       "albumName":  "Isha",
+                       "assets":  [
+                                      {
+                                          "fileName":  "isha_01.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_01.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_02.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_02.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_03.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_03.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_04.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_04.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_05.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_05.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_06.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_06.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_07.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_07.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_08.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_08.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_09.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_09.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_10.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_10.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_11.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_11.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_12.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_12.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_13.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_13.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_14.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_14.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_15.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_15.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_16.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_16.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_17.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_17.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_18.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_18.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_19.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_19.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_20.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_20.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_21.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_21.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_22.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_22.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_23.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_23.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_24.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_24.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_25.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_25.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_26.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_26.mp3"
+                                      },
+                                      {
+                                          "fileName":  "isha_27.mp3",
+                                          "assetPath":  "packs/isha/audio/isha_27.mp3"
+                                      }
+                                  ]
+                   },
+    "imageAlbum":  {
+                       "albumId":  "00000000-0000-4000-a000-000000000002",
+                       "albumName":  "Isha",
+                       "assets":  [
+                                      {
+                                          "fileName":  "isha_1.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_1.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_2.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_2.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_3.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_3.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_4.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_4.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_5.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_5.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_6.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_6.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_7.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_7.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_8.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_8.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_9.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_9.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_10.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_10.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_11.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_11.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_12.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_12.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_13.jpg",
+                                          "assetPath":  "packs/isha/photos/isha_13.jpg"
+                                      },
+                                      {
+                                          "fileName":  "isha_14.jpeg",
+                                          "assetPath":  "packs/isha/photos/isha_14.jpeg"
+                                      },
+                                      {
+                                          "fileName":  "isha_15.jpeg",
+                                          "assetPath":  "packs/isha/photos/isha_15.jpeg"
+                                      }
+                                  ]
+                   }
+}
