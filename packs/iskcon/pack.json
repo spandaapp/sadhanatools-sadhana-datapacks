@@ -1,0 +1,118 @@
+﻿{
+    "schemaVersion":  1,
+    "id":  "iskcon",
+    "displayName":  "ISKCON",
+    "description":  "ISKCON audio album, photo backgrounds, and morning/evening sadhana alarms.",
+    "moodNames":  [
+
+                  ],
+    "practices":  [
+
+                  ],
+    "smartTimers":  [
+
+                    ],
+    "schedules":  [
+                      {
+                          "label":  "Morning sadhana (5:00 AM)",
+                          "type":  "REGULAR",
+                          "regularHour":  5,
+                          "regularMinute":  0,
+                          "audioAlbumId":  "00000000-0000-4000-a000-000000000007",
+                          "backgroundAlbumId":  "00000000-0000-4000-a000-000000000008",
+                          "useRandomAlbum":  true,
+                          "useRandomBackgroundAlbum":  true,
+                          "audioAssetPath":  "audio/albums/nature/nature_1.mp3",
+                          "notificationTitle":  "Morning sadhana",
+                          "notificationBody":  "Time for your morning practice",
+                          "volume":  0.5,
+                          "vibrate":  false
+                      },
+                      {
+                          "label":  "Evening sadhana (6:20 PM)",
+                          "type":  "REGULAR",
+                          "regularHour":  18,
+                          "regularMinute":  20,
+                          "audioAlbumId":  "00000000-0000-4000-a000-000000000007",
+                          "backgroundAlbumId":  "00000000-0000-4000-a000-000000000008",
+                          "useRandomAlbum":  true,
+                          "useRandomBackgroundAlbum":  true,
+                          "audioAssetPath":  "audio/albums/nature/nature_1.mp3",
+                          "notificationTitle":  "Evening sadhana",
+                          "notificationBody":  "Time for your evening practice",
+                          "volume":  0.5,
+                          "vibrate":  false
+                      }
+                  ],
+    "widgets":  [
+
+                ],
+    "audioAlbum":  {
+                       "albumId":  "00000000-0000-4000-a000-000000000007",
+                       "albumName":  "ISKCON",
+                       "assets":  [
+                                      {
+                                          "fileName":  "iskcon_01.mp3",
+                                          "assetPath":  "packs/iskcon/audio/iskcon_01.mp3"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_02.mp3",
+                                          "assetPath":  "packs/iskcon/audio/iskcon_02.mp3"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_03.mp3",
+                                          "assetPath":  "packs/iskcon/audio/iskcon_03.mp3"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_04.mp3",
+                                          "assetPath":  "packs/iskcon/audio/iskcon_04.mp3"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_05.mp3",
+                                          "assetPath":  "packs/iskcon/audio/iskcon_05.mp3"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_06.mp3",
+                                          "assetPath":  "packs/iskcon/audio/iskcon_06.mp3"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_07.mp3",
+                                          "assetPath":  "packs/iskcon/audio/iskcon_07.mp3"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_08.mp3",
+                                          "assetPath":  "packs/iskcon/audio/iskcon_08.mp3"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_09.mp3",
+                                          "assetPath":  "packs/iskcon/audio/iskcon_09.mp3"
+                                      }
+                                  ]
+                   },
+    "imageAlbum":  {
+                       "albumId":  "00000000-0000-4000-a000-000000000008",
+                       "albumName":  "ISKCON",
+                       "assets":  [
+                                      {
+                                          "fileName":  "iskcon_1.jpg",
+                                          "assetPath":  "packs/iskcon/photos/iskcon_1.jpg"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_2.jpg",
+                                          "assetPath":  "packs/iskcon/photos/iskcon_2.jpg"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_3.jpg",
+                                          "assetPath":  "packs/iskcon/photos/iskcon_3.jpg"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_4.jpg",
+                                          "assetPath":  "packs/iskcon/photos/iskcon_4.jpg"
+                                      },
+                                      {
+                                          "fileName":  "iskcon_5.jpg",
+                                          "assetPath":  "packs/iskcon/photos/iskcon_5.jpg"
+                                      }
+                                  ]
+                   }
+}
