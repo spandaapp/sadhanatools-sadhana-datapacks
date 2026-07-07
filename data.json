@@ -16,6 +16,10 @@
     "iskcon": {
       "likes": 1,
       "downloads": 1
+    },
+    "test": {
+      "likes": 0,
+      "downloads": 0
     }
   }
 }
