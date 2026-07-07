@@ -49,6 +49,13 @@
       "description": "",
       "version": 1,
       "manifestPath": "packs\/test7\/pack.json"
+    },
+    {
+      "id": "test9",
+      "displayName": "test9",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/test9\/pack.json"
     }
   ]
 }
