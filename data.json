@@ -20,6 +20,10 @@
     "test": {
       "likes": 2,
       "downloads": 2
+    },
+    "test4": {
+      "likes": 0,
+      "downloads": 0
     }
   }
 }
