@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "test",
+  "displayName": "test",
+  "description": "",
+  "moodNames": [],
+  "practices": [],
+  "smartTimers": [],
+  "schedules": [
+    {
+      "label": "5 min chimes (6am–10pm)",
+      "type": "INTERVAL",
+      "intervalMillis": 300000,
+      "intervalStartMinutesOfDay": 360,
+      "intervalEndMinutesOfDay": 1320,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "useRandomAlbum": false,
+      "useRandomBackgroundAlbum": false,
+      "volume": 0.5,
+      "vibrate": false,
+      "notificationTitle": "Reminder",
+      "notificationBody": "Take a moment",
+      "enabled": true
+    }
+  ],
+  "widgets": [],
+  "audioAlbum": {
+    "albumId": "a928d318-5f2a-43d0-bd7e-ab3e049d351a",
+    "albumName": "My album",
+    "assets": [
+      {
+        "assetPath": "packs\/test\/audio\/1000096582",
+        "fileName": "1000096582"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/1000096583",
+        "fileName": "1000096583"
+      }
+    ]
+  },
+  "imageAlbum": {
+    "albumId": "7a43cac1-2c39-4ed8-af0f-952132e9ab08",
+    "albumName": "My images",
+    "assets": [
+      {
+        "assetPath": "packs\/test\/photos\/1000096585",
+        "fileName": "1000096585"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/1000096586",
+        "fileName": "1000096586"
+      }
+    ]
+  }
+}
