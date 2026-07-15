@@ -1,6 +1,12 @@
 {
   "schemaVersion": 1,
   "packs": [
-    
+    {
+      "id": "isha-default",
+      "displayName": "Isha - Default",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/isha-default\/pack.json"
+    }
   ]
 }
