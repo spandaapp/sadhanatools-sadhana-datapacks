@@ -1,5 +1,9 @@
 {
   "schemaVersion": 1,
   "packs": {
+    "isha-default": {
+      "likes": 0,
+      "downloads": 0
+    }
   }
 }
