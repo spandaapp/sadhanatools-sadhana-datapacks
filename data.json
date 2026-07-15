@@ -1,5 +1,9 @@
 {
   "schemaVersion": 1,
   "packs": {
+    "isha": {
+      "likes": 0,
+      "downloads": 0
+    }
   }
 }
