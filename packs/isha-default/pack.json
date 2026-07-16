@@ -96,7 +96,7 @@
     {
       "label": "Breath",
       "type": "INTERVAL",
-      "intervalMillis": 60000,
+      "intervalMillis": 300000,
       "intervalStartMinutesOfDay": 360,
       "intervalEndMinutesOfDay": 1320,
       "intervalChimeDurationMillis": 1000,
