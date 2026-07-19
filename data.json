@@ -4,6 +4,10 @@
     "isha-default": {
       "likes": 5,
       "downloads": 22
+    },
+    "empty": {
+      "likes": 0,
+      "downloads": 0
     }
   }
 }

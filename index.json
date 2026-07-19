@@ -7,6 +7,13 @@
       "description": "",
       "version": 1,
       "manifestPath": "packs\/isha-default\/pack.json"
+    },
+    {
+      "id": "empty",
+      "displayName": "empty",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/empty\/pack.json"
     }
   ]
 }
