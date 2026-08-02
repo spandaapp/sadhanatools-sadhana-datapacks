@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "empty",
   "displayName": "empty",
-  "description": "",
+  "description": "e2e edit-flow check \u2014 should NOT auto-merge, PR only",
   "moodNames": [],
   "practices": [],
   "smartTimers": [],
