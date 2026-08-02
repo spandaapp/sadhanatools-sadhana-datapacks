@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "packs": {
     "isha-default": {
-      "likes": 7,
+      "likes": 88888,
       "downloads": 31
     },
     "empty": {
@@ -10,7 +10,7 @@
       "downloads": 1
     },
     "zzz-e2e-1785675874": {
-      "likes": 1,
+      "likes": 2,
       "downloads": 0
     }
   }
