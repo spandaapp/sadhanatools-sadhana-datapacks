@@ -15,7 +15,7 @@ packs/{packId}/photos/*
 Datapacks are maintained in `datapacks-repo/packs/` (not bundled in the APK). Edit files there, then push:
 
 ```powershell
-.\scripts\push-datapacks-repo.ps1 -Owner spandaapp -Repo sadhanatools-sadhana-datapacks
+.\datapacks-repo\push-datapacks-repo.ps1 -Owner spandaapp -Repo sadhanatools-sadhana-datapacks
 ```
 
 Legacy export from APK assets is no longer used.
@@ -23,7 +23,7 @@ Legacy export from APK assets is no longer used.
 Create a public repo (e.g. `spandaapp/sadhanatools-sadhana-datapacks`), then from the tool repo root:
 
 ```powershell
-.\scripts\push-datapacks-repo.ps1 -Owner spandaapp -Repo sadhanatools-sadhana-datapacks
+.\datapacks-repo\push-datapacks-repo.ps1 -Owner spandaapp -Repo sadhanatools-sadhana-datapacks
 ```
 
 ## App config
