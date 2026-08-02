@@ -6,14 +6,22 @@
       "displayName": "Isha - Default",
       "description": "",
       "version": 1,
-      "manifestPath": "packs\/isha-default\/pack.json"
+      "manifestPath": "packs/isha-default/pack.json"
     },
     {
       "id": "empty",
       "displayName": "empty",
       "description": "",
       "version": 1,
-      "manifestPath": "packs\/empty\/pack.json"
+      "manifestPath": "packs/empty/pack.json"
+    },
+    {
+      "id": "zzz-e2e-1785671305",
+      "displayName": "E2E Verify (safe to delete)",
+      "description": "Full end-to-end verification pack. Safe to delete.",
+      "version": 1,
+      "manifestPath": "packs/zzz-e2e-1785671305/pack.json",
+      "approved": false
     }
   ]
 }

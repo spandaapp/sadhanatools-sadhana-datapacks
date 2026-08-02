@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "zzz-e2e-1785671305",
+  "displayName": "E2E Verify (safe to delete)",
+  "description": "Full end-to-end verification pack. Safe to delete.",
+  "moodNames": [],
+  "practices": [],
+  "smartTimers": [],
+  "schedules": [],
+  "widgets": [],
+  "audioAlbum": null,
+  "imageAlbum": null
+}
