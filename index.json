@@ -2,18 +2,20 @@
   "schemaVersion": 1,
   "packs": [
     {
-      "id": "isha-default",
-      "displayName": "Isha - Default",
-      "description": "",
-      "version": 1,
-      "manifestPath": "packs\/isha-default\/pack.json"
-    },
-    {
       "id": "empty",
       "displayName": "empty",
       "description": "",
       "version": 1,
-      "manifestPath": "packs\/empty\/pack.json"
+      "manifestPath": "packs\/empty\/pack.json",
+      "approved": false
+    },
+    {
+      "id": "isha-default",
+      "displayName": "Isha - Default",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/isha-default\/pack.json",
+      "approved": false
     }
   ]
 }
