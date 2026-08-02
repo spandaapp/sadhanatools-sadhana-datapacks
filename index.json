@@ -22,6 +22,14 @@
       "version": 1,
       "manifestPath": "packs/zzz-e2e-1785675874/pack.json",
       "approved": false
+    },
+    {
+      "id": "zzz-e2e-1785678035",
+      "displayName": "E2E Verify (safe to delete)",
+      "description": "Full end-to-end verification pack. Safe to delete.",
+      "version": 1,
+      "manifestPath": "packs/zzz-e2e-1785678035/pack.json",
+      "approved": false
     }
   ]
 }
