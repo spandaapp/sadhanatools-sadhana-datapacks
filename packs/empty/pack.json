@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "empty",
   "displayName": "empty",
-  "description": "",
+  "description": "verification edit-test \u2014 should NOT auto-merge",
   "moodNames": [],
   "practices": [],
   "smartTimers": [],
