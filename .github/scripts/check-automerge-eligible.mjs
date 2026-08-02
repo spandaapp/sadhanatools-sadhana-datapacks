@@ -120,17 +120,42 @@ function checkStatsOnly() {
   if (!deepEqual(baseIds, headIds)) {
     return { eligible: false, reason: "data.json pack id set changed — not a pure stats update" };
   }
+
+  // A single like/unlike or download tap in the app changes exactly one pack's entry, by
+  // exactly 1 in one field. Require that shape here too, not just "same id set" — otherwise
+  // a PR disguised as a small stats bump could tamper with any *other* pack's numbers in the
+  // same commit and still pass.
+  let changedCount = 0;
   for (const id of headIds) {
     const entry = headData.packs[id];
+    const baseEntry = baseData.packs[id];
     const keys = Object.keys(entry).sort();
-    if (deepEqual(keys, ["downloads", "likes"]) === false) {
+    if (!deepEqual(keys, ["downloads", "likes"])) {
       return { eligible: false, reason: `data.json entry for ${id} has unexpected shape` };
     }
-    if (typeof entry.likes !== "number" || typeof entry.downloads !== "number") {
-      return { eligible: false, reason: `data.json entry for ${id} has non-numeric likes/downloads` };
+    if (
+      !Number.isInteger(entry.likes) || !Number.isInteger(entry.downloads) ||
+      entry.likes < 0 || entry.downloads < 0
+    ) {
+      return { eligible: false, reason: `data.json entry for ${id} has non-integer or negative likes/downloads` };
+    }
+    if (!deepEqual(entry, baseEntry)) {
+      changedCount++;
+      const likesDelta = Math.abs(entry.likes - baseEntry.likes);
+      const downloadsDelta = Math.abs(entry.downloads - baseEntry.downloads);
+      if (likesDelta > 1 || downloadsDelta > 1) {
+        return {
+          eligible: false,
+          reason: `data.json entry for ${id} changed by more than 1 ` +
+            `(likes ${baseEntry.likes}->${entry.likes}, downloads ${baseEntry.downloads}->${entry.downloads})`,
+        };
+      }
     }
   }
-  return { eligible: true, reason: "pure stats-only update (likes/downloads)" };
+  if (changedCount !== 1) {
+    return { eligible: false, reason: `expected exactly one pack's stats to change, found ${changedCount}` };
+  }
+  return { eligible: true, reason: "pure stats-only update (single pack, delta of 1)" };
 }
 
 if (changedFiles.length === 0) {
