@@ -81,28 +81,41 @@ taps, download counts) also goes through this same branch + PR flow now — see 
 
 ### One-time repo setup
 
-In this repo's GitHub Settings → Branches, add a protection rule for `main`:
+This repo uses a **Ruleset** (Settings → Rules → Rulesets), not classic branch protection.
+Rulesets have their own bypass model — a `bypass_actors` list on the ruleset itself — which
+works differently from classic protection's "administrators can override" checkbox. That
+distinction matters for the choice below.
+
+**Why the bypass actor is a GitHub App, not a role or a second PAT:** the obvious-looking
+option is "add a `Repository admin` role to the bypass list" and give the automerge token's
+account Admin. That's unsafe here specifically because `GITHUB_COMMUNITY_TOKEN` is minted
+from the repo owner's own account, which already *has* Admin — a role-based bypass would
+therefore also let the community token bypass required review, silently defeating the
+entire separation, unless the community token were moved to a second, deliberately
+low-privilege account. A GitHub App's identity is independent of any personal account's
+role, so it can be the sole bypass actor without that risk, and without needing a second
+account at all.
 
 1. **Require a pull request before merging** — on, required approvals: 1.
-2. **Do not allow bypassing the above settings** — leave **unchecked**. (Classic branch
-   protection has no "allow specific actors to bypass" list — the only bypass mechanism is
-   this checkbox, which, when unchecked, lets anyone with **Admin** role on the repo merge
-   past the review requirement.) This is why the workflow merges with `gh pr merge --admin`
-   instead of trying to get a review approval: the PR is opened by the community-token
-   identity, and GitHub never lets a PR's author approve their own PR, so the
-   review-approval route is a dead end here regardless of any bypass list.
-3. **Restrict who can push to matching branches** — on, with an empty (or maintainer-only)
-   allow-list, so no direct push to `main` is possible from anyone or anything.
-4. Add a repo secret `AUTOMERGE_TOKEN`: a fine-grained PAT, created for this workflow
-   specifically (don't reuse `GITHUB_COMMUNITY_TOKEN`), whose **account** has Admin role on
-   this repo. Grant it **Contents: write** (to write the actual merge commit onto `main`)
-   + **Pull requests: write** (to call merge at all). If `--admin` merges still get
-   rejected after the above, the account's Admin role or the "do not allow bypassing"
-   checkbox is the thing to re-check first — not the token's own scopes; fine-grained PATs
-   can only ever be a subset of what the underlying account can already do, so no scope
-   grants bypass power an account doesn't already have.
+2. **Restrict who can push to matching branches** — on, empty (or maintainer-only)
+   allow-list, so no direct push to `main` is possible from anyone or anything. (Confirmed
+   live: direct push and force-push with the community token both get rejected with
+   `Repository rule violations found`.)
+3. Create a GitHub App for automerge (Settings → Developer settings → GitHub Apps → New
+   GitHub App): repository permissions **Contents: Read and write** + **Pull requests: Read
+   and write**, nothing else; no webhook; installable only on your own account. Install it
+   on this repo only, and generate a private key for it.
+4. Add two repo secrets (Settings → Secrets and variables → Actions):
+   - `AUTOMERGE_APP_ID` — the App's numeric ID (not sensitive).
+   - `AUTOMERGE_APP_PRIVATE_KEY` — the full contents of the generated private key file.
+5. In the ruleset's bypass list, add the App as a bypass actor with mode **"Pull requests
+   only"** (not "Always" — that would also let it push directly, which it should never do).
+   Remove any other bypass actors that aren't intentional (a stray `DeployKey` bypass with
+   mode "Always" has shown up here before from unrelated troubleshooting — if present,
+   remove it; it would let *any* deploy key ever added to the repo push straight to `main`
+   for anything, whether or not it's related to this workflow).
 
-This makes `AUTOMERGE_TOKEN` an admin-level credential for this repo. That's a meaningfully
-bigger blast radius than the community token if it ever leaked — but unlike the community
-token, it never ships in the APK; it only exists as a GitHub Actions secret, server-side.
-Keep it that way (never put it in `local.properties`, never log it in workflow output).
+The workflow (`.github/workflows/auto-merge-new-packs.yml`) mints a short-lived
+installation token from the App on every run via `actions/create-github-app-token`, rather
+than reading a long-lived PAT from secrets — the App's credentials (ID + private key) never
+leave GitHub Actions, and the merge step never touches `GITHUB_COMMUNITY_TOKEN` at all.
