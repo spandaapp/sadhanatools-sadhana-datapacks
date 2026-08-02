@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "packs": {
+    "isha": {
+      "likes": 3,
+      "downloads": 6
+    },
+    "art-of-living": {
+      "likes": 5,
+      "downloads": 4
+    },
+    "osho": {
+      "likes": 1,
+      "downloads": 1
+    },
+    "iskcon": {
+      "likes": 2,
+      "downloads": 1
+    },
+    "test": {
+      "likes": 2,
+      "downloads": 2
+    },
+    "test4": {
+      "likes": 0,
+      "downloads": 1
+    },
+    "test7": {
+      "likes": 1,
+      "downloads": 0
+    },
+    "test9": {
+      "likes": 1,
+      "downloads": 1
+    },
+    "test11": {
+      "likes": 2,
+      "downloads": 1
+    }
+  }
+}

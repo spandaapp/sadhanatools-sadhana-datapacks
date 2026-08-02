@@ -1,9 +1,13 @@
 {
   "schemaVersion": 1,
   "packs": {
-    "isha": { "likes": 0, "downloads": 0 },
-    "art-of-living": { "likes": 0, "downloads": 0 },
-    "osho": { "likes": 0, "downloads": 0 },
-    "iskcon": { "likes": 0, "downloads": 0 }
+    "isha-default": {
+      "likes": 7,
+      "downloads": 31
+    },
+    "empty": {
+      "likes": 0,
+      "downloads": 1
+    }
   }
 }

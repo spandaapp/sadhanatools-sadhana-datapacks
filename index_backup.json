@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "packs": [
+    {
+      "id": "isha",
+      "displayName": "Isha",
+      "description": "Morning and evening sadhana alarms, moods, timers, and audio\/photo albums.",
+      "version": 1,
+      "manifestPath": "packs\/isha\/pack.json"
+    },
+    {
+      "id": "art-of-living",
+      "displayName": "Art of Living",
+      "description": "Art of Living audio album, photo backgrounds, and morning\/evening sadhana alarms.",
+      "version": 1,
+      "manifestPath": "packs\/art-of-living\/pack.json"
+    },
+    {
+      "id": "osho",
+      "displayName": "Osho",
+      "description": "Osho audio album, photo backgrounds, and morning\/evening sadhana alarms.",
+      "version": 1,
+      "manifestPath": "packs\/osho\/pack.json"
+    },
+    {
+      "id": "iskcon",
+      "displayName": "ISKCON",
+      "description": "ISKCON audio album, photo backgrounds, and morning\/evening sadhana alarms.",
+      "version": 1,
+      "manifestPath": "packs\/iskcon\/pack.json"
+    },
+    {
+      "id": "test",
+      "displayName": "test",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/test\/pack.json"
+    },
+    {
+      "id": "test4",
+      "displayName": "test4",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/test4\/pack.json"
+    },
+    {
+      "id": "test7",
+      "displayName": "test7",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/test7\/pack.json"
+    },
+    {
+      "id": "test9",
+      "displayName": "test9",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/test9\/pack.json"
+    },
+    {
+      "id": "test11",
+      "displayName": "test11",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/test11\/pack.json"
+    }
+  ]
+}

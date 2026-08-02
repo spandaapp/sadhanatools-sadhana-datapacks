@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "id": "test11",
+  "displayName": "test11",
+  "description": "",
+  "moodNames": [
+    "Fear",
+    "Grace"
+  ],
+  "practices": [],
+  "smartTimers": [],
+  "schedules": [
+    {
+      "label": "5 min chimes (6am–10pm)",
+      "type": "INTERVAL",
+      "intervalMillis": 300000,
+      "intervalStartMinutesOfDay": 360,
+      "intervalEndMinutesOfDay": 1320,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "useRandomAlbum": false,
+      "useRandomBackgroundAlbum": false,
+      "volume": 0.5,
+      "vibrate": false,
+      "notificationTitle": "Reminder",
+      "notificationBody": "Take a moment",
+      "enabled": true
+    },
+    {
+      "label": "Hourly chimes (all day)",
+      "type": "INTERVAL",
+      "intervalMillis": 3600000,
+      "intervalStartMinutesOfDay": 0,
+      "intervalEndMinutesOfDay": 1440,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "useRandomAlbum": false,
+      "useRandomBackgroundAlbum": false,
+      "volume": 0.5,
+      "vibrate": false,
+      "notificationTitle": "Reminder",
+      "notificationBody": "Take a moment",
+      "enabled": true
+    },
+    {
+      "label": "Morning sadhana (5:00 AM)",
+      "type": "REGULAR",
+      "regularHour": 5,
+      "regularMinute": 0,
+      "intervalStartMinutesOfDay": 540,
+      "intervalEndMinutesOfDay": 1020,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/nature\/nature_1.mp3",
+      "useRandomAlbum": true,
+      "audioAlbumId": "c250601c-37cf-41a2-9503-44d3397a941d",
+      "useRandomBackgroundAlbum": true,
+      "backgroundAlbumId": "18ddfae1-243e-4dab-b794-2b24fd4b19fe",
+      "volume": 0.5,
+      "vibrate": false,
+      "notificationTitle": "Morning sadhana",
+      "notificationBody": "Time for your morning practice",
+      "enabled": true
+    },
+    {
+      "label": "Evening sadhana (6:20 PM)",
+      "type": "REGULAR",
+      "regularHour": 18,
+      "regularMinute": 20,
+      "intervalStartMinutesOfDay": 540,
+      "intervalEndMinutesOfDay": 1020,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/nature\/nature_1.mp3",
+      "useRandomAlbum": true,
+      "audioAlbumId": "c250601c-37cf-41a2-9503-44d3397a941d",
+      "useRandomBackgroundAlbum": true,
+      "backgroundAlbumId": "18ddfae1-243e-4dab-b794-2b24fd4b19fe",
+      "volume": 0.5,
+      "vibrate": false,
+      "notificationTitle": "Evening sadhana",
+      "notificationBody": "Time for your evening practice",
+      "enabled": true
+    }
+  ],
+  "widgets": [
+    {
+      "preset": "moon_phase"
+    }
+  ],
+  "audioAlbum": {
+    "albumId": "c250601c-37cf-41a2-9503-44d3397a941d",
+    "albumName": "My album",
+    "assets": [
+      {
+        "assetPath": "packs\/test11\/audio\/isha_01.mp3",
+        "fileName": "isha_01.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_02.mp3",
+        "fileName": "isha_02.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_03.mp3",
+        "fileName": "isha_03.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_04.mp3",
+        "fileName": "isha_04.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_05.mp3",
+        "fileName": "isha_05.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_06.mp3",
+        "fileName": "isha_06.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_07.mp3",
+        "fileName": "isha_07.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_08.mp3",
+        "fileName": "isha_08.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_09.mp3",
+        "fileName": "isha_09.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_10.mp3",
+        "fileName": "isha_10.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_11.mp3",
+        "fileName": "isha_11.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_12.mp3",
+        "fileName": "isha_12.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_13.mp3",
+        "fileName": "isha_13.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_14.mp3",
+        "fileName": "isha_14.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_15.mp3",
+        "fileName": "isha_15.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_16.mp3",
+        "fileName": "isha_16.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_17.mp3",
+        "fileName": "isha_17.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_18.mp3",
+        "fileName": "isha_18.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_19.mp3",
+        "fileName": "isha_19.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_20.mp3",
+        "fileName": "isha_20.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_21.mp3",
+        "fileName": "isha_21.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_22.mp3",
+        "fileName": "isha_22.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_23.mp3",
+        "fileName": "isha_23.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_24.mp3",
+        "fileName": "isha_24.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_25.mp3",
+        "fileName": "isha_25.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_26.mp3",
+        "fileName": "isha_26.mp3"
+      },
+      {
+        "assetPath": "packs\/test11\/audio\/isha_27.mp3",
+        "fileName": "isha_27.mp3"
+      }
+    ]
+  },
+  "imageAlbum": {
+    "albumId": "18ddfae1-243e-4dab-b794-2b24fd4b19fe",
+    "albumName": "My images",
+    "assets": [
+      {
+        "assetPath": "packs\/test11\/photos\/isha_1.jpg",
+        "fileName": "isha_1.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_10.jpg",
+        "fileName": "isha_10.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_11.jpg",
+        "fileName": "isha_11.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_12.jpg",
+        "fileName": "isha_12.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_13.jpg",
+        "fileName": "isha_13.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_14.jpeg",
+        "fileName": "isha_14.jpeg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_15.jpeg",
+        "fileName": "isha_15.jpeg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_2.jpg",
+        "fileName": "isha_2.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_3.jpg",
+        "fileName": "isha_3.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_4.jpg",
+        "fileName": "isha_4.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_5.jpg",
+        "fileName": "isha_5.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_6.jpg",
+        "fileName": "isha_6.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_7.jpg",
+        "fileName": "isha_7.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_8.jpg",
+        "fileName": "isha_8.jpg"
+      },
+      {
+        "assetPath": "packs\/test11\/photos\/isha_9.jpg",
+        "fileName": "isha_9.jpg"
+      }
+    ]
+  }
+}
