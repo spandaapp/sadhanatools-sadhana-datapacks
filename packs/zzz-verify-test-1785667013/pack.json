@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "zzz-verify-test-1785667013",
+  "displayName": "Verify Test (safe to delete)",
+  "description": "Automated end-to-end verification pack. Safe to delete.",
+  "moodNames": [],
+  "practices": [],
+  "smartTimers": [],
+  "schedules": [],
+  "widgets": [],
+  "audioAlbum": null,
+  "imageAlbum": null
+}

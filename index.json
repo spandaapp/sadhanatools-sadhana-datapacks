@@ -6,14 +6,22 @@
       "displayName": "Isha - Default",
       "description": "",
       "version": 1,
-      "manifestPath": "packs\/isha-default\/pack.json"
+      "manifestPath": "packs/isha-default/pack.json"
     },
     {
       "id": "empty",
       "displayName": "empty",
       "description": "",
       "version": 1,
-      "manifestPath": "packs\/empty\/pack.json"
+      "manifestPath": "packs/empty/pack.json"
+    },
+    {
+      "id": "zzz-verify-test-1785667013",
+      "displayName": "Verify Test (safe to delete)",
+      "description": "Automated end-to-end verification pack. Safe to delete.",
+      "version": 1,
+      "manifestPath": "packs/zzz-verify-test-1785667013/pack.json",
+      "approved": false
     }
   ]
 }
