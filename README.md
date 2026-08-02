@@ -119,3 +119,13 @@ The workflow (`.github/workflows/auto-merge-new-packs.yml`) mints a short-lived
 installation token from the App on every run via `actions/create-github-app-token`, rather
 than reading a long-lived PAT from secrets — the App's credentials (ID + private key) never
 leave GitHub Actions, and the merge step never touches `GITHUB_COMMUNITY_TOKEN` at all.
+
+**The merge step still needs `gh pr merge --admin`.** Being in `bypass_actors` only makes an
+actor *eligible* to bypass — `--admin` is the client-side signal that actually invokes that
+eligibility on a given merge call. Confirmed live: even with the App correctly configured as
+the sole bypass actor (matching `AUTOMERGE_APP_ID`, installed on the repo), a plain
+`gh pr merge --merge` (no `--admin`) still gets rejected with "the base branch policy
+prohibits the merge" — same message GitHub prints for a merge attempt that isn't eligible to
+bypass at all. `--admin` isn't specific to classic branch protection's admin-role override as
+we first assumed; it's required to use bypass rights however they were granted, Rulesets
+included.
