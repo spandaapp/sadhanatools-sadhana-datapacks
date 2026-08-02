@@ -6,7 +6,8 @@
       "displayName": "Isha - Default",
       "description": "",
       "version": 1,
-      "manifestPath": "packs/isha-default/pack.json"
+      "manifestPath": "packs/isha-default/pack.json",
+      "approved": true
     },
     {
       "id": "empty",
@@ -21,6 +22,14 @@
       "description": "Full end-to-end verification pack. Safe to delete.",
       "version": 1,
       "manifestPath": "packs/zzz-e2e-1785675874/pack.json",
+      "approved": false
+    },
+    {
+      "id": "zzz-smuggle-1785678770",
+      "displayName": "Smuggle Test",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs/zzz-smuggle-1785678770/pack.json",
       "approved": false
     }
   ]
