@@ -46,4 +46,10 @@ jobs:
         if: steps.check.outputs.automerge == 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: gh pr merge --merge "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}"
+        # --admin: without this, gh doesn't invoke bypass rights at all, even though the
+        # App token generated above IS authorized to bypass via the ruleset's bypass_actors
+        # entry (Integration, mode "pull_request"). This flag is the client-side signal to
+        # actually use that authorization — it's not exclusive to classic-branch-protection
+        # admin overrides as we initially assumed; confirmed live, same hint appears
+        # regardless of how bypass eligibility was granted.
+        run: gh pr merge --merge --admin "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}"
