@@ -1,0 +1,66 @@
+name: Open approval PRs for new packs
+
+# A merged pack sits in index.json with `"approved": false`, hidden behind the app's
+# "Approved only" filter until someone flips the flag. This opens the PR that flips it; a
+# human still merges it, and that merge is the approval. Nothing here approves anything.
+#
+# Runs on push rather than on `pull_request: closed` so it also catches packs that arrive by
+# any other route, and the cron is the safety net for a run that was cancelled or lost. Both
+# are cheap: with nothing to do the script opens no PRs.
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.json
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Log what would happen without pushing branches or opening PRs"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pull-requests: read
+
+# Two runs opening an approval PR for the same pack would race past each other's "does one
+# already exist" check and open duplicates. Not cancel-in-progress: a cancelled run leaves
+# a pack without its PR until the next cron.
+concurrency:
+  group: open-approval-prs
+  cancel-in-progress: false
+
+jobs:
+  open-approval-prs:
+    runs-on: ubuntu-latest
+    steps:
+      # Same App as the automerge workflow, for the same reason: it can create the branch and
+      # the PR without a long-lived PAT, and — unlike the default GITHUB_TOKEN — it needs no
+      # "Allow GitHub Actions to create and approve pull requests" repo setting turned on.
+      - name: Generate automerge app token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.AUTOMERGE_APP_ID }}
+          private-key: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
+      # Full history, not --depth=1: a stale approval PR is fixed by re-parenting its branch
+      # onto current main and force-pushing, and a shallow base gets that push rejected.
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Open or refresh approval PRs
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REPO: ${{ github.repository }}
+          BASE_BRANCH: main
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: node .github/scripts/open-approval-prs.mjs

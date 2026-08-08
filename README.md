@@ -67,7 +67,12 @@ against two independent, narrow categories:
 
 1. **New pack**: every changed path lives under a `packs/<id>/` folder that didn't exist on
    `main` before, and `index.json`/`data.json` each gained exactly one new entry with every
-   pre-existing entry byte-identical.
+   pre-existing entry unchanged. "Unchanged" is compared on the parsed documents with schema
+   defaults filled in, not on bytes: the app rebuilds the whole of `index.json` from its own
+   model, so every entry comes back carrying every field the current app schema knows about,
+   including ones an older on-disk entry omitted. Back-filling `"approved": false` onto an
+   entry that predates the field is not a content edit and must not block the merge — PR #49
+   stalled on exactly that. Setting it to `true`, or changing anything else, still fails.
 2. **Stats-only**: the *only* changed file is `data.json`, the set of pack ids is unchanged
    (no pack added or removed — this also blocks sneaking a phantom new pack id into
    `data.json` without a real `packs/<id>/` folder to back it), and every entry still has
@@ -78,6 +83,41 @@ already existed, which fails both categories, so it always falls through and the
 sits open for a maintainer to review and merge by hand. `DataPackStatsRepository` (like
 taps, download counts) also goes through this same branch + PR flow now — see the
 `stats-only` category above.
+
+### Approving a pack after it lands
+
+A pack auto-merges with `"approved": false`, which keeps it behind the "Approved only" filter
+on the app's Load Data screen — it's in the catalog, but not in the default view. Flipping
+that flag is a curation judgement, so it stays with a person.
+
+`.github/workflows/open-approval-prs.yml` only *prepares* the flip.
+`.github/scripts/open-approval-prs.mjs` opens one PR per unapproved pack, containing a
+one-line `false` → `true` change to that pack's `index.json` entry. **Merging that PR is the
+approval** — review the pack's contents in the PR that added it first. Nothing auto-approves:
+an approval PR modifies an existing entry, so `check-automerge-eligible.mjs` rejects it by
+design, and no special case exempts it.
+
+Three behaviours are worth knowing before touching this:
+
+- **Closing an approval PR without merging means "rejected."** The sweep looks at approval PRs
+  in *any* state, not just open ones, so a closed one is a permanent decision and no new PR
+  will be opened for that pack. Reopen it if you closed it by accident.
+- **A stale approval PR is force-pushed in place, never closed and re-created.** A new pack
+  merging rewrites every line of `index.json`, which can leave an older approval PR
+  conflicting; re-parenting its branch onto current `main` is the only thing that clears that
+  (same reasoning as the stats rebase below). Closing and re-opening would work mechanically
+  but would destroy the "closed means rejected" signal above.
+- **The edit is text surgery, not a re-serialise**, so the diff is one line and doesn't collide
+  with in-flight new-pack PRs. Entries are located by position from a string-aware scan rather
+  than by searching for the pack id, because `displayName` and `description` are whatever a
+  submitter typed into the app and can be crafted to impersonate another entry. The result is
+  checked against the parsed document — every entry equal except the one flag — before it is
+  committed.
+
+It runs on `push` to `main` touching `index.json` (so a pack gets its approval PR right after
+it merges), hourly as a safety net, and on demand via **Actions → Open approval PRs for new
+packs → Run workflow**, which has a `dry_run` input that logs what it would do and touches
+nothing.
 
 ### Concurrent stats PRs: last write wins on the *count*, not the file
 
