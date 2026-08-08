@@ -40,6 +40,14 @@
       "version": 2,
       "manifestPath": "packs\/testpack\/pack.json",
       "approved": false
+    },
+    {
+      "id": "test",
+      "displayName": "test",
+      "description": "",
+      "version": 1,
+      "manifestPath": "packs\/test\/pack.json",
+      "approved": false
     }
   ]
 }
