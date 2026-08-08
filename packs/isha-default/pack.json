@@ -8,33 +8,31 @@
     "Bliss",
     "Energy",
     "Grace",
-    "Joy",
-    "Sad"
+    "Joy"
   ],
   "practices": [
     {
-      "name": "SCK",
-      "dailyTargetCycles": 2,
-      "sortOrder": 2
-    },
-    {
       "name": "Shambhavi",
       "dailyTargetCycles": 2,
+      "gracePeriodDays": 0,
       "sortOrder": 0
     },
     {
       "name": "Shoonya",
       "dailyTargetCycles": 2,
+      "gracePeriodDays": 0,
       "sortOrder": 1
     },
     {
       "name": "Surya Kriya",
       "dailyTargetCycles": 7,
+      "gracePeriodDays": 0,
       "sortOrder": 3
     },
     {
       "name": "Surya Shakti",
       "dailyTargetCycles": 33,
+      "gracePeriodDays": 0,
       "sortOrder": 4
     }
   ],
@@ -54,6 +52,13 @@
         1500000,
         1800000
       ],
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "volume": 0.699999988079071,
+      "beepDurationMs": 1000,
+      "vibrate": false,
+      "reminderEnabled": false,
+      "reminderMinutesOfDay": 540,
+      "reminderText": "",
       "sortOrder": 0
     },
     {
@@ -70,6 +75,13 @@
         2100000,
         2400000
       ],
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "volume": 0.699999988079071,
+      "beepDurationMs": 1000,
+      "vibrate": false,
+      "reminderEnabled": false,
+      "reminderMinutesOfDay": 540,
+      "reminderText": "",
       "sortOrder": 0
     }
   ],
@@ -88,10 +100,18 @@
       "useRandomBackgroundAlbum": true,
       "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
       "volume": 1,
+      "fadeDurationSeconds": 0,
       "vibrate": false,
+      "loopAudio": true,
+      "androidFullScreenIntent": true,
+      "showStopButton": true,
+      "showAlarmName": false,
       "notificationTitle": "Spanda alarm",
       "notificationBody": "Time for your morning sadhana",
-      "enabled": true
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     },
     {
       "label": "Breath",
@@ -104,10 +124,18 @@
       "useRandomAlbum": false,
       "useRandomBackgroundAlbum": false,
       "volume": 1,
+      "fadeDurationSeconds": 0,
       "vibrate": false,
+      "loopAudio": false,
+      "androidFullScreenIntent": false,
+      "showStopButton": false,
+      "showAlarmName": false,
       "notificationTitle": "Reminder",
       "notificationBody": "Breath",
-      "enabled": true
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     },
     {
       "label": "IE Crash Course",
@@ -120,10 +148,18 @@
       "useRandomAlbum": false,
       "useRandomBackgroundAlbum": false,
       "volume": 1,
+      "fadeDurationSeconds": 0,
       "vibrate": false,
+      "loopAudio": false,
+      "androidFullScreenIntent": false,
+      "showStopButton": false,
+      "showAlarmName": false,
       "notificationTitle": "Reminder",
       "notificationBody": "IE Crash Course",
-      "enabled": true
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     },
     {
       "label": "Evening Sadhana",
@@ -139,10 +175,18 @@
       "useRandomBackgroundAlbum": true,
       "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
       "volume": 1,
+      "fadeDurationSeconds": 0,
       "vibrate": false,
+      "loopAudio": true,
+      "androidFullScreenIntent": true,
+      "showStopButton": true,
+      "showAlarmName": false,
       "notificationTitle": "Spanda alarm",
       "notificationBody": "Time for your evening sadhana",
-      "enabled": true
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     }
   ],
   "widgets": [],
@@ -193,10 +237,6 @@
       {
         "assetPath": "packs\/isha-default\/audio\/isha_11.mp3",
         "fileName": "isha_11.mp3"
-      },
-      {
-        "assetPath": "packs\/isha-default\/audio\/isha_12.mp3",
-        "fileName": "isha_12.mp3"
       },
       {
         "assetPath": "packs\/isha-default\/audio\/isha_13.mp3",
@@ -253,10 +293,6 @@
       {
         "assetPath": "packs\/isha-default\/audio\/isha_26.mp3",
         "fileName": "isha_26.mp3"
-      },
-      {
-        "assetPath": "packs\/isha-default\/audio\/isha_27.mp3",
-        "fileName": "isha_27.mp3"
       }
     ]
   },
@@ -277,10 +313,6 @@
         "fileName": "ReactNativeBlobUtilTmp_3jdoutfxf5eapa3z99uvzv.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_4c9mw0oc8lym5qvo8u72gp.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_4c9mw0oc8lym5qvo8u72gp.jpg"
-      },
-      {
         "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_6gkk8ubn04nu9hwa2o6mo9.jpg",
         "fileName": "ReactNativeBlobUtilTmp_6gkk8ubn04nu9hwa2o6mo9.jpg"
       },
@@ -291,10 +323,6 @@
       {
         "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_77sr97j1kt78a8avtp43ca.jpg",
         "fileName": "ReactNativeBlobUtilTmp_77sr97j1kt78a8avtp43ca.jpg"
-      },
-      {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_7umazntnoiwpav7oxf2o1j.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_7umazntnoiwpav7oxf2o1j.jpg"
       },
       {
         "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_96if6eai3rgmf1niyxeygs.jpg",
@@ -369,10 +397,6 @@
         "fileName": "ReactNativeBlobUtilTmp_p5j0nw2q6niqg2sk9qxez.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_qbkky089jpkow6m9mmxr.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_qbkky089jpkow6m9mmxr.jpg"
-      },
-      {
         "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_tj00hqrwt5u6x2h81fd9b.jpg",
         "fileName": "ReactNativeBlobUtilTmp_tj00hqrwt5u6x2h81fd9b.jpg"
       },
@@ -401,5 +425,6 @@
         "fileName": "ReactNativeBlobUtilTmp_znt2indchvla6y3yzm3erg.jpg"
       }
     ]
-  }
+  },
+  "icsAssets": []
 }

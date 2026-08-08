@@ -2,14 +2,6 @@
   "schemaVersion": 1,
   "packs": [
     {
-      "id": "isha-default",
-      "displayName": "Isha - Default",
-      "description": "",
-      "version": 1,
-      "manifestPath": "packs\/isha-default\/pack.json",
-      "approved": true
-    },
-    {
       "id": "empty",
       "displayName": "empty",
       "description": "",
@@ -40,6 +32,14 @@
       "version": 2,
       "manifestPath": "packs\/testpack\/pack.json",
       "approved": false
+    },
+    {
+      "id": "isha-default",
+      "displayName": "Isha - Default",
+      "description": "",
+      "version": 2,
+      "manifestPath": "packs\/isha-default\/pack.json",
+      "approved": true
     }
   ]
 }
