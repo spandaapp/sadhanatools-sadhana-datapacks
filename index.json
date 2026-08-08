@@ -37,7 +37,7 @@
       "id": "testpack",
       "displayName": "testpack",
       "description": "",
-      "version": 1,
+      "version": 2,
       "manifestPath": "packs\/testpack\/pack.json",
       "approved": false
     }
