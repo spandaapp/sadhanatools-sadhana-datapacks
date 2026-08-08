@@ -3,7 +3,8 @@
 //
 //   1. A pure "add a new pack": every changed file lives under a packs/<id>/ folder that
 //      did not exist on the base branch, and index.json/data.json each gained exactly one
-//      new entry, with every pre-existing entry byte-identical.
+//      new entry, with every pre-existing entry unchanged (compared as canonicalised JSON,
+//      not bytes — see canonicalEntry).
 //   2. A pure "stats-only update" (likes/downloads from the app): the only changed file is
 //      data.json, the set of pack ids is unchanged (no packs added or removed), and every
 //      entry still has exactly the {likes, downloads} shape — only the numbers may differ.
@@ -42,6 +43,32 @@ function deepEqual(a, b) {
   return JSON.stringify(a) === JSON.stringify(b);
 }
 
+// Fields an entry may legitimately omit, with the value the readers assume when it's absent.
+// Kept in sync with DataPackRemoteJsonParser.parseIndex's optString/optInt/optBoolean defaults.
+const ENTRY_DEFAULTS = {
+  description: "",
+  version: 1,
+  approved: false,
+  likes: 0,
+  downloads: 0,
+};
+
+// The app doesn't append to index.json — it re-serialises the whole file from its own model,
+// so every entry comes back carrying every field the *current* app schema knows about, even
+// ones the on-disk entry predates (`approved` is the first of these). Back-filling a field
+// with its default is not a content edit, so drop defaults before comparing; a real change
+// (approved: true, a bumped version) survives canonicalisation and is still caught. Key order
+// isn't meaningful in JSON either, and org.json's ordering need not match the file's, so sort.
+function canonicalEntry(entry) {
+  if (entry === null || typeof entry !== "object" || Array.isArray(entry)) return entry;
+  const canonical = {};
+  for (const key of Object.keys(entry).sort()) {
+    if (key in ENTRY_DEFAULTS && deepEqual(entry[key], ENTRY_DEFAULTS[key])) continue;
+    canonical[key] = entry[key];
+  }
+  return canonical;
+}
+
 function packEntries(file) {
   // index.json uses an array of {id, ...}; data.json uses an object keyed by pack id.
   if (file === null) return null;
@@ -60,7 +87,7 @@ function isAdditiveOnly(baseFile, headFile) {
   for (const [id, baseEntry] of baseById) {
     const headEntry = headById.get(id);
     if (headEntry === undefined) return false; // existing entry removed
-    if (!deepEqual(baseEntry, headEntry)) return false; // existing entry modified
+    if (!deepEqual(canonicalEntry(baseEntry), canonicalEntry(headEntry))) return false; // existing entry modified
   }
   return headById.size === baseById.size + 1;
 }
