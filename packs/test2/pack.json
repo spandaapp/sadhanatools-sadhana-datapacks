@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "id": "test2",
+  "displayName": "test2",
+  "description": "",
+  "moodNames": [
+    "Joy"
+  ],
+  "practices": [
+    {
+      "name": "Surya Kriya",
+      "dailyTargetCycles": 7,
+      "gracePeriodDays": 0,
+      "sortOrder": 3
+    }
+  ],
+  "smartTimers": [
+    {
+      "label": "Turiya",
+      "durationMs": 1800000,
+      "beepOffsetsMs": [
+        60000,
+        240000,
+        420000,
+        600000,
+        840000,
+        960000,
+        1080000,
+        1260000,
+        1500000,
+        1800000
+      ],
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "volume": 0.699999988079071,
+      "beepDurationMs": 1000,
+      "vibrate": false,
+      "reminderEnabled": false,
+      "reminderMinutesOfDay": 540,
+      "reminderText": "",
+      "sortOrder": 0
+    },
+    {
+      "label": "Presence Time",
+      "durationMs": 2400000,
+      "beepOffsetsMs": [
+        60000,
+        300000,
+        600000,
+        900000,
+        1200000,
+        1500000,
+        1800000,
+        2100000,
+        2400000
+      ],
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "volume": 0.699999988079071,
+      "beepDurationMs": 1000,
+      "vibrate": false,
+      "reminderEnabled": false,
+      "reminderMinutesOfDay": 540,
+      "reminderText": "",
+      "sortOrder": 0
+    }
+  ],
+  "schedules": [
+    {
+      "label": "Morning Sadhana",
+      "type": "REGULAR",
+      "regularHour": 4,
+      "regularMinute": 0,
+      "intervalStartMinutesOfDay": 540,
+      "intervalEndMinutesOfDay": 1020,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/nature\/nature_1.mp3",
+      "useRandomAlbum": true,
+      "audioAlbumId": "00000000-0000-4000-a000-000000000001",
+      "useRandomBackgroundAlbum": true,
+      "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
+      "volume": 1,
+      "fadeDurationSeconds": 0,
+      "vibrate": false,
+      "loopAudio": true,
+      "androidFullScreenIntent": true,
+      "showStopButton": true,
+      "showAlarmName": false,
+      "notificationTitle": "Spanda alarm",
+      "notificationBody": "Time for your morning sadhana",
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
+    },
+    {
+      "label": "Breath",
+      "type": "INTERVAL",
+      "intervalMillis": 300000,
+      "intervalStartMinutesOfDay": 360,
+      "intervalEndMinutesOfDay": 1320,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "useRandomAlbum": false,
+      "useRandomBackgroundAlbum": false,
+      "volume": 1,
+      "fadeDurationSeconds": 0,
+      "vibrate": false,
+      "loopAudio": false,
+      "androidFullScreenIntent": false,
+      "showStopButton": false,
+      "showAlarmName": false,
+      "notificationTitle": "Reminder",
+      "notificationBody": "Breath",
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
+    }
+  ],
+  "widgets": [],
+  "audioAlbum": {
+    "albumId": "00000000-0000-4000-a000-000000000001",
+    "albumName": "Isha",
+    "assets": [
+      {
+        "assetPath": "packs\/test2\/audio\/isha_02.mp3",
+        "fileName": "isha_02.mp3"
+      },
+      {
+        "assetPath": "packs\/test2\/audio\/isha_03.mp3",
+        "fileName": "isha_03.mp3"
+      },
+      {
+        "assetPath": "packs\/test2\/audio\/isha_04.mp3",
+        "fileName": "isha_04.mp3"
+      }
+    ]
+  },
+  "imageAlbum": {
+    "albumId": "00000000-0000-4000-a000-000000000002",
+    "albumName": "Isha",
+    "assets": [
+      {
+        "assetPath": "packs\/test2\/photos\/ReactNativeBlobUtilTmp_7umazntnoiwpav7oxf2o1j.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_7umazntnoiwpav7oxf2o1j.jpg"
+      },
+      {
+        "assetPath": "packs\/test2\/photos\/ReactNativeBlobUtilTmp_9dqnjz2tpxo61nwg9y8ois.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_9dqnjz2tpxo61nwg9y8ois.jpg"
+      },
+      {
+        "assetPath": "packs\/test2\/photos\/ReactNativeBlobUtilTmp_9jhx3cfj1ugkpybq24tl47.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_9jhx3cfj1ugkpybq24tl47.jpg"
+      }
+    ]
+  },
+  "icsAssets": []
+}
