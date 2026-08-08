@@ -3,12 +3,125 @@
   "id": "test",
   "displayName": "test",
   "description": "",
-  "moodNames": [],
-  "practices": [],
-  "smartTimers": [],
+  "moodNames": [
+    "Anger",
+    "Bliss",
+    "Energy",
+    "Grace",
+    "Joy",
+    "Sad"
+  ],
+  "practices": [
+    {
+      "name": "SCK",
+      "dailyTargetCycles": 2,
+      "gracePeriodDays": 0,
+      "sortOrder": 2
+    },
+    {
+      "name": "Shambhavi",
+      "dailyTargetCycles": 2,
+      "gracePeriodDays": 0,
+      "sortOrder": 0
+    },
+    {
+      "name": "Shoonya",
+      "dailyTargetCycles": 2,
+      "gracePeriodDays": 0,
+      "sortOrder": 1
+    },
+    {
+      "name": "Surya Kriya",
+      "dailyTargetCycles": 7,
+      "gracePeriodDays": 0,
+      "sortOrder": 3
+    },
+    {
+      "name": "Surya Shakti",
+      "dailyTargetCycles": 33,
+      "gracePeriodDays": 0,
+      "sortOrder": 4
+    }
+  ],
+  "smartTimers": [
+    {
+      "label": "Turiya",
+      "durationMs": 1800000,
+      "beepOffsetsMs": [
+        60000,
+        240000,
+        420000,
+        600000,
+        840000,
+        960000,
+        1080000,
+        1260000,
+        1500000,
+        1800000
+      ],
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "volume": 0.699999988079071,
+      "beepDurationMs": 1000,
+      "vibrate": false,
+      "reminderEnabled": false,
+      "reminderMinutesOfDay": 540,
+      "reminderText": "",
+      "sortOrder": 0
+    },
+    {
+      "label": "Presence Time",
+      "durationMs": 2400000,
+      "beepOffsetsMs": [
+        60000,
+        300000,
+        600000,
+        900000,
+        1200000,
+        1500000,
+        1800000,
+        2100000,
+        2400000
+      ],
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "volume": 0.699999988079071,
+      "beepDurationMs": 1000,
+      "vibrate": false,
+      "reminderEnabled": false,
+      "reminderMinutesOfDay": 540,
+      "reminderText": "",
+      "sortOrder": 0
+    }
+  ],
   "schedules": [
     {
-      "label": "5 min chimes (6am–10pm)",
+      "label": "Morning Sadhana",
+      "type": "REGULAR",
+      "regularHour": 4,
+      "regularMinute": 0,
+      "intervalStartMinutesOfDay": 540,
+      "intervalEndMinutesOfDay": 1020,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/nature\/nature_1.mp3",
+      "useRandomAlbum": true,
+      "audioAlbumId": "00000000-0000-4000-a000-000000000001",
+      "useRandomBackgroundAlbum": true,
+      "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
+      "volume": 1,
+      "fadeDurationSeconds": 0,
+      "vibrate": false,
+      "loopAudio": true,
+      "androidFullScreenIntent": true,
+      "showStopButton": true,
+      "showAlarmName": false,
+      "notificationTitle": "Spanda alarm",
+      "notificationBody": "Time for your morning sadhana",
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
+    },
+    {
+      "label": "Breath",
       "type": "INTERVAL",
       "intervalMillis": 300000,
       "intervalStartMinutesOfDay": 360,
@@ -17,40 +130,308 @@
       "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
       "useRandomAlbum": false,
       "useRandomBackgroundAlbum": false,
-      "volume": 0.5,
+      "volume": 1,
+      "fadeDurationSeconds": 0,
       "vibrate": false,
+      "loopAudio": false,
+      "androidFullScreenIntent": false,
+      "showStopButton": false,
+      "showAlarmName": false,
       "notificationTitle": "Reminder",
-      "notificationBody": "Take a moment",
-      "enabled": true
+      "notificationBody": "Breath",
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
+    },
+    {
+      "label": "IE Crash Course",
+      "type": "INTERVAL",
+      "intervalMillis": 3600000,
+      "intervalStartMinutesOfDay": 0,
+      "intervalEndMinutesOfDay": 1380,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Cling.mp3",
+      "useRandomAlbum": false,
+      "useRandomBackgroundAlbum": false,
+      "volume": 1,
+      "fadeDurationSeconds": 0,
+      "vibrate": false,
+      "loopAudio": false,
+      "androidFullScreenIntent": false,
+      "showStopButton": false,
+      "showAlarmName": false,
+      "notificationTitle": "Reminder",
+      "notificationBody": "IE Crash Course",
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
+    },
+    {
+      "label": "Evening Sadhana",
+      "type": "REGULAR",
+      "regularHour": 19,
+      "regularMinute": 0,
+      "intervalStartMinutesOfDay": 540,
+      "intervalEndMinutesOfDay": 1020,
+      "intervalChimeDurationMillis": 1000,
+      "audioAssetPath": "audio\/albums\/nature\/nature_1.mp3",
+      "useRandomAlbum": true,
+      "audioAlbumId": "00000000-0000-4000-a000-000000000001",
+      "useRandomBackgroundAlbum": true,
+      "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
+      "volume": 1,
+      "fadeDurationSeconds": 0,
+      "vibrate": false,
+      "loopAudio": true,
+      "androidFullScreenIntent": true,
+      "showStopButton": true,
+      "showAlarmName": false,
+      "notificationTitle": "Spanda alarm",
+      "notificationBody": "Time for your evening sadhana",
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     }
   ],
   "widgets": [],
   "audioAlbum": {
-    "albumId": "a928d318-5f2a-43d0-bd7e-ab3e049d351a",
-    "albumName": "My album",
+    "albumId": "00000000-0000-4000-a000-000000000001",
+    "albumName": "Isha",
     "assets": [
       {
-        "assetPath": "packs\/test\/audio\/1000096582",
-        "fileName": "1000096582"
+        "assetPath": "packs\/test\/audio\/isha_01.mp3",
+        "fileName": "isha_01.mp3"
       },
       {
-        "assetPath": "packs\/test\/audio\/1000096583",
-        "fileName": "1000096583"
+        "assetPath": "packs\/test\/audio\/isha_02.mp3",
+        "fileName": "isha_02.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_03.mp3",
+        "fileName": "isha_03.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_04.mp3",
+        "fileName": "isha_04.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_05.mp3",
+        "fileName": "isha_05.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_06.mp3",
+        "fileName": "isha_06.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_07.mp3",
+        "fileName": "isha_07.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_08.mp3",
+        "fileName": "isha_08.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_09.mp3",
+        "fileName": "isha_09.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_10.mp3",
+        "fileName": "isha_10.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_11.mp3",
+        "fileName": "isha_11.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_13.mp3",
+        "fileName": "isha_13.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_14.mp3",
+        "fileName": "isha_14.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_15.mp3",
+        "fileName": "isha_15.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_16.mp3",
+        "fileName": "isha_16.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_17.mp3",
+        "fileName": "isha_17.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_18.mp3",
+        "fileName": "isha_18.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_19.mp3",
+        "fileName": "isha_19.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_20.mp3",
+        "fileName": "isha_20.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_21.mp3",
+        "fileName": "isha_21.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_22.mp3",
+        "fileName": "isha_22.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_23.mp3",
+        "fileName": "isha_23.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_24.mp3",
+        "fileName": "isha_24.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_25.mp3",
+        "fileName": "isha_25.mp3"
+      },
+      {
+        "assetPath": "packs\/test\/audio\/isha_26.mp3",
+        "fileName": "isha_26.mp3"
       }
     ]
   },
   "imageAlbum": {
-    "albumId": "7a43cac1-2c39-4ed8-af0f-952132e9ab08",
-    "albumName": "My images",
+    "albumId": "00000000-0000-4000-a000-000000000002",
+    "albumName": "Isha",
     "assets": [
       {
-        "assetPath": "packs\/test\/photos\/1000096585",
-        "fileName": "1000096585"
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_1xfgsydrun9n7xix199zrl.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_1xfgsydrun9n7xix199zrl.jpg"
       },
       {
-        "assetPath": "packs\/test\/photos\/1000096586",
-        "fileName": "1000096586"
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_2ug080wccl4dcxwazjmha8.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_2ug080wccl4dcxwazjmha8.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_3jdoutfxf5eapa3z99uvzv.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_3jdoutfxf5eapa3z99uvzv.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_6gkk8ubn04nu9hwa2o6mo9.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_6gkk8ubn04nu9hwa2o6mo9.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_6uaax78fuupnllzj1pyz5n.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_6uaax78fuupnllzj1pyz5n.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_77sr97j1kt78a8avtp43ca.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_77sr97j1kt78a8avtp43ca.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_96if6eai3rgmf1niyxeygs.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_96if6eai3rgmf1niyxeygs.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_99h1jurhbk7nrzrrlx8vle.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_99h1jurhbk7nrzrrlx8vle.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_9dqnjz2tpxo61nwg9y8ois.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_9dqnjz2tpxo61nwg9y8ois.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_9jhx3cfj1ugkpybq24tl47.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_9jhx3cfj1ugkpybq24tl47.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_ahl5f6u8ck5tqz62bgzsa.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_ahl5f6u8ck5tqz62bgzsa.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_c27sghp6o65salxn459evn.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_c27sghp6o65salxn459evn.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_cnice311erhk03dmo948oh.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_cnice311erhk03dmo948oh.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_crwgsrwdswkp9as199229.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_crwgsrwdswkp9as199229.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_dh3jhh6r29qz7e4t2673sp.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_dh3jhh6r29qz7e4t2673sp.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_dvwg35uy4rswkzcdblv87.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_dvwg35uy4rswkzcdblv87.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_f8uloi3z0j5bohue05ii0h.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_f8uloi3z0j5bohue05ii0h.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_g8phwavn96lg6dxu8e07s.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_g8phwavn96lg6dxu8e07s.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_gqfrdfjzxc9nzjy2frpcha.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_gqfrdfjzxc9nzjy2frpcha.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_grgmfkj6d0ici0rdfrhe4k.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_grgmfkj6d0ici0rdfrhe4k.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_h7vif3z7794ssam89m28li.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_h7vif3z7794ssam89m28li.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_hxi6zfq1n9gykk4ol0ux8l.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_hxi6zfq1n9gykk4ol0ux8l.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_ogftwmtik9m4vr6pah74x9.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_ogftwmtik9m4vr6pah74x9.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_p5j0nw2q6niqg2sk9qxez.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_p5j0nw2q6niqg2sk9qxez.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_tj00hqrwt5u6x2h81fd9b.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_tj00hqrwt5u6x2h81fd9b.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_tr0w8vo82j58eawf61w7s.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_tr0w8vo82j58eawf61w7s.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_x7dipt3flx91w5bmdlvo.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_x7dipt3flx91w5bmdlvo.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_xh8ot3zry4p9l65gu2nmof.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_xh8ot3zry4p9l65gu2nmof.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_xsgahe2z6kam8rqzt4y0fl.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_xsgahe2z6kam8rqzt4y0fl.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_xtka4p09hps4gs2k7063it.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_xtka4p09hps4gs2k7063it.jpg"
+      },
+      {
+        "assetPath": "packs\/test\/photos\/ReactNativeBlobUtilTmp_znt2indchvla6y3yzm3erg.jpg",
+        "fileName": "ReactNativeBlobUtilTmp_znt2indchvla6y3yzm3erg.jpg"
       }
     ]
-  }
+  },
+  "icsAssets": []
 }

@@ -20,6 +20,10 @@
     "testpack": {
       "likes": 0,
       "downloads": 2
+    },
+    "test": {
+      "likes": 0,
+      "downloads": 0
     }
   }
 }
