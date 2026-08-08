@@ -39,7 +39,7 @@
       "description": "",
       "version": 1,
       "manifestPath": "packs\/testpack\/pack.json",
-      "approved": false
+      "approved": true
     }
   ]
 }
