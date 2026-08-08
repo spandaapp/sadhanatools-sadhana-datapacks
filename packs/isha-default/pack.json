@@ -4,38 +4,14 @@
   "displayName": "Isha - Default",
   "description": "",
   "moodNames": [
-    "Anger",
-    "Bliss",
-    "Energy",
-    "Grace",
-    "Joy",
-    "Sad"
+    "Anger"
   ],
   "practices": [
     {
       "name": "SCK",
       "dailyTargetCycles": 2,
+      "gracePeriodDays": 0,
       "sortOrder": 2
-    },
-    {
-      "name": "Shambhavi",
-      "dailyTargetCycles": 2,
-      "sortOrder": 0
-    },
-    {
-      "name": "Shoonya",
-      "dailyTargetCycles": 2,
-      "sortOrder": 1
-    },
-    {
-      "name": "Surya Kriya",
-      "dailyTargetCycles": 7,
-      "sortOrder": 3
-    },
-    {
-      "name": "Surya Shakti",
-      "dailyTargetCycles": 33,
-      "sortOrder": 4
     }
   ],
   "smartTimers": [
@@ -54,22 +30,13 @@
         1500000,
         1800000
       ],
-      "sortOrder": 0
-    },
-    {
-      "label": "Presence Time",
-      "durationMs": 2400000,
-      "beepOffsetsMs": [
-        60000,
-        300000,
-        600000,
-        900000,
-        1200000,
-        1500000,
-        1800000,
-        2100000,
-        2400000
-      ],
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "volume": 0.699999988079071,
+      "beepDurationMs": 1000,
+      "vibrate": false,
+      "reminderEnabled": false,
+      "reminderMinutesOfDay": 540,
+      "reminderText": "",
       "sortOrder": 0
     }
   ],
@@ -88,61 +55,18 @@
       "useRandomBackgroundAlbum": true,
       "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
       "volume": 1,
+      "fadeDurationSeconds": 0,
       "vibrate": false,
+      "loopAudio": true,
+      "androidFullScreenIntent": true,
+      "showStopButton": true,
+      "showAlarmName": false,
       "notificationTitle": "Spanda alarm",
       "notificationBody": "Time for your morning sadhana",
-      "enabled": true
-    },
-    {
-      "label": "Breath",
-      "type": "INTERVAL",
-      "intervalMillis": 300000,
-      "intervalStartMinutesOfDay": 360,
-      "intervalEndMinutesOfDay": 1320,
-      "intervalChimeDurationMillis": 1000,
-      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
-      "useRandomAlbum": false,
-      "useRandomBackgroundAlbum": false,
-      "volume": 1,
-      "vibrate": false,
-      "notificationTitle": "Reminder",
-      "notificationBody": "Breath",
-      "enabled": true
-    },
-    {
-      "label": "IE Crash Course",
-      "type": "INTERVAL",
-      "intervalMillis": 3600000,
-      "intervalStartMinutesOfDay": 0,
-      "intervalEndMinutesOfDay": 1380,
-      "intervalChimeDurationMillis": 1000,
-      "audioAssetPath": "audio\/albums\/interval-ringtones\/Cling.mp3",
-      "useRandomAlbum": false,
-      "useRandomBackgroundAlbum": false,
-      "volume": 1,
-      "vibrate": false,
-      "notificationTitle": "Reminder",
-      "notificationBody": "IE Crash Course",
-      "enabled": true
-    },
-    {
-      "label": "Evening Sadhana",
-      "type": "REGULAR",
-      "regularHour": 19,
-      "regularMinute": 0,
-      "intervalStartMinutesOfDay": 540,
-      "intervalEndMinutesOfDay": 1020,
-      "intervalChimeDurationMillis": 1000,
-      "audioAssetPath": "audio\/albums\/nature\/nature_1.mp3",
-      "useRandomAlbum": true,
-      "audioAlbumId": "00000000-0000-4000-a000-000000000001",
-      "useRandomBackgroundAlbum": true,
-      "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
-      "volume": 1,
-      "vibrate": false,
-      "notificationTitle": "Spanda alarm",
-      "notificationBody": "Time for your evening sadhana",
-      "enabled": true
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     }
   ],
   "widgets": [],
@@ -401,5 +325,11 @@
         "fileName": "ReactNativeBlobUtilTmp_znt2indchvla6y3yzm3erg.jpg"
       }
     ]
-  }
+  },
+  "icsAssets": [
+    {
+      "assetPath": "packs\/isha-default\/ics\/isha_selected_events_v2.ics",
+      "fileName": "isha_selected_events_v2.ics"
+    }
+  ]
 }
