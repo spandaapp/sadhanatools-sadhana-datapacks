@@ -16,6 +16,10 @@
     "test2": {
       "likes": 0,
       "downloads": 0
+    },
+    "testpack": {
+      "likes": 0,
+      "downloads": 0
     }
   }
 }
