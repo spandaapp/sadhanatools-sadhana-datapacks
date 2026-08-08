@@ -23,7 +23,7 @@
       "description": "Full end-to-end verification pack. Safe to delete.",
       "version": 1,
       "manifestPath": "packs\/zzz-e2e-1785675874\/pack.json",
-      "approved": false
+      "approved": true
     },
     {
       "id": "test2",
