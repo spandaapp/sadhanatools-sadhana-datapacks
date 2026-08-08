@@ -113,6 +113,7 @@
       "androidFullScreenIntent": true,
       "showStopButton": true,
       "showAlarmName": true,
+      "showTodayEvents": true,
       "notificationTitle": "Spanda alarm",
       "notificationBody": "Time for your morning sadhana",
       "enabled": true,
@@ -137,6 +138,7 @@
       "androidFullScreenIntent": false,
       "showStopButton": false,
       "showAlarmName": false,
+      "showTodayEvents": true,
       "notificationTitle": "Reminder",
       "notificationBody": "Breath",
       "enabled": true,
@@ -161,6 +163,7 @@
       "androidFullScreenIntent": false,
       "showStopButton": false,
       "showAlarmName": false,
+      "showTodayEvents": true,
       "notificationTitle": "Reminder",
       "notificationBody": "IE Crash Course",
       "enabled": true,
@@ -188,6 +191,7 @@
       "androidFullScreenIntent": true,
       "showStopButton": true,
       "showAlarmName": false,
+      "showTodayEvents": true,
       "notificationTitle": "Spanda alarm",
       "notificationBody": "Time for your evening sadhana",
       "enabled": true,
@@ -202,112 +206,112 @@
     "albumName": "Isha",
     "assets": [
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_01.mp3",
-        "fileName": "isha_01.mp3"
+        "assetPath": "packs\/isha-default\/audio\/break_the_patterns.mp3",
+        "fileName": "break_the_patterns.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_02.mp3",
-        "fileName": "isha_02.mp3"
+        "assetPath": "packs\/isha-default\/audio\/consistency.mp3",
+        "fileName": "consistency.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_03.mp3",
-        "fileName": "isha_03.mp3"
+        "assetPath": "packs\/isha-default\/audio\/devotion.mp3",
+        "fileName": "devotion.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_04.mp3",
-        "fileName": "isha_04.mp3"
+        "assetPath": "packs\/isha-default\/audio\/dont_giveup_your_striving.mp3",
+        "fileName": "dont_giveup_your_striving.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_05.mp3",
-        "fileName": "isha_05.mp3"
+        "assetPath": "packs\/isha-default\/audio\/eager_to_wakeup.mp3",
+        "fileName": "eager_to_wakeup.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_06.mp3",
-        "fileName": "isha_06.mp3"
+        "assetPath": "packs\/isha-default\/audio\/Fire_of_sadhana.mp3",
+        "fileName": "Fire_of_sadhana.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_07.mp3",
-        "fileName": "isha_07.mp3"
+        "assetPath": "packs\/isha-default\/audio\/first_one_to_catch_sun.mp3",
+        "fileName": "first_one_to_catch_sun.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_08.mp3",
-        "fileName": "isha_08.mp3"
+        "assetPath": "packs\/isha-default\/audio\/I_want_to_suceed_as_a_guru.mp3",
+        "fileName": "I_want_to_suceed_as_a_guru.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_09.mp3",
-        "fileName": "isha_09.mp3"
+        "assetPath": "packs\/isha-default\/audio\/It_can_happen_any_moment.mp3",
+        "fileName": "It_can_happen_any_moment.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_10.mp3",
-        "fileName": "isha_10.mp3"
+        "assetPath": "packs\/isha-default\/audio\/Its_a_possibility_in_this_life.mp3",
+        "fileName": "Its_a_possibility_in_this_life.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_11.mp3",
-        "fileName": "isha_11.mp3"
+        "assetPath": "packs\/isha-default\/audio\/Life_hasnt_knocked_you_sufficiently.mp3",
+        "fileName": "Life_hasnt_knocked_you_sufficiently.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_12.mp3",
-        "fileName": "isha_12.mp3"
+        "assetPath": "packs\/isha-default\/audio\/life_is_tough_for_body.mp3",
+        "fileName": "life_is_tough_for_body.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_13.mp3",
-        "fileName": "isha_13.mp3"
+        "assetPath": "packs\/isha-default\/audio\/mortality.mp3",
+        "fileName": "mortality.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_14.mp3",
-        "fileName": "isha_14.mp3"
+        "assetPath": "packs\/isha-default\/audio\/new_nonsense_atleast.mp3",
+        "fileName": "new_nonsense_atleast.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_15.mp3",
-        "fileName": "isha_15.mp3"
+        "assetPath": "packs\/isha-default\/audio\/no_loosing.mp3",
+        "fileName": "no_loosing.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_16.mp3",
-        "fileName": "isha_16.mp3"
+        "assetPath": "packs\/isha-default\/audio\/no_solace.mp3",
+        "fileName": "no_solace.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_17.mp3",
-        "fileName": "isha_17.mp3"
+        "assetPath": "packs\/isha-default\/audio\/No_way_you_can_remaim_untransformed.mp3",
+        "fileName": "No_way_you_can_remaim_untransformed.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_18.mp3",
-        "fileName": "isha_18.mp3"
+        "assetPath": "packs\/isha-default\/audio\/offering.mp3",
+        "fileName": "offering.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_19.mp3",
-        "fileName": "isha_19.mp3"
+        "assetPath": "packs\/isha-default\/audio\/powerful_processes.mp3",
+        "fileName": "powerful_processes.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_20.mp3",
-        "fileName": "isha_20.mp3"
+        "assetPath": "packs\/isha-default\/audio\/rare_possibility.mp3",
+        "fileName": "rare_possibility.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_21.mp3",
-        "fileName": "isha_21.mp3"
+        "assetPath": "packs\/isha-default\/audio\/Rub_your_hands.mp3",
+        "fileName": "Rub_your_hands.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_22.mp3",
-        "fileName": "isha_22.mp3"
+        "assetPath": "packs\/isha-default\/audio\/sadhana.mp3",
+        "fileName": "sadhana.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_23.mp3",
-        "fileName": "isha_23.mp3"
+        "assetPath": "packs\/isha-default\/audio\/Seeking_should_go_away_but_not_sadhana.mp3",
+        "fileName": "Seeking_should_go_away_but_not_sadhana.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_24.mp3",
-        "fileName": "isha_24.mp3"
+        "assetPath": "packs\/isha-default\/audio\/smile.mp3",
+        "fileName": "smile.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_25.mp3",
-        "fileName": "isha_25.mp3"
+        "assetPath": "packs\/isha-default\/audio\/transform.mp3",
+        "fileName": "transform.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_26.mp3",
-        "fileName": "isha_26.mp3"
+        "assetPath": "packs\/isha-default\/audio\/urgency.mp3",
+        "fileName": "urgency.mp3"
       },
       {
-        "assetPath": "packs\/isha-default\/audio\/isha_27.mp3",
-        "fileName": "isha_27.mp3"
+        "assetPath": "packs\/isha-default\/audio\/you_can_die_today.mp3",
+        "fileName": "you_can_die_today.mp3"
       }
     ]
   },
@@ -316,140 +320,140 @@
     "albumName": "Isha",
     "assets": [
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_1xfgsydrun9n7xix199zrl.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_1xfgsydrun9n7xix199zrl.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_1.jpg",
+        "fileName": "Isha_1.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_2ug080wccl4dcxwazjmha8.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_2ug080wccl4dcxwazjmha8.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_10.jpg",
+        "fileName": "Isha_10.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_3jdoutfxf5eapa3z99uvzv.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_3jdoutfxf5eapa3z99uvzv.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_11.jpg",
+        "fileName": "Isha_11.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_4c9mw0oc8lym5qvo8u72gp.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_4c9mw0oc8lym5qvo8u72gp.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_12.jpg",
+        "fileName": "Isha_12.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_6gkk8ubn04nu9hwa2o6mo9.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_6gkk8ubn04nu9hwa2o6mo9.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_13.jpg",
+        "fileName": "Isha_13.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_6uaax78fuupnllzj1pyz5n.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_6uaax78fuupnllzj1pyz5n.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_14.jpg",
+        "fileName": "Isha_14.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_77sr97j1kt78a8avtp43ca.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_77sr97j1kt78a8avtp43ca.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_15.jpg",
+        "fileName": "Isha_15.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_7umazntnoiwpav7oxf2o1j.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_7umazntnoiwpav7oxf2o1j.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_16.jpg",
+        "fileName": "Isha_16.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_96if6eai3rgmf1niyxeygs.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_96if6eai3rgmf1niyxeygs.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_17.jpg",
+        "fileName": "Isha_17.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_99h1jurhbk7nrzrrlx8vle.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_99h1jurhbk7nrzrrlx8vle.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_18.jpg",
+        "fileName": "Isha_18.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_9dqnjz2tpxo61nwg9y8ois.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_9dqnjz2tpxo61nwg9y8ois.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_19.jpg",
+        "fileName": "Isha_19.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_9jhx3cfj1ugkpybq24tl47.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_9jhx3cfj1ugkpybq24tl47.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_2.jpg",
+        "fileName": "Isha_2.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_ahl5f6u8ck5tqz62bgzsa.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_ahl5f6u8ck5tqz62bgzsa.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_20.jpg",
+        "fileName": "Isha_20.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_c27sghp6o65salxn459evn.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_c27sghp6o65salxn459evn.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_21.jpg",
+        "fileName": "Isha_21.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_cnice311erhk03dmo948oh.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_cnice311erhk03dmo948oh.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_22.jpg",
+        "fileName": "Isha_22.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_crwgsrwdswkp9as199229.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_crwgsrwdswkp9as199229.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_23.jpg",
+        "fileName": "Isha_23.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_dh3jhh6r29qz7e4t2673sp.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_dh3jhh6r29qz7e4t2673sp.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_24.jpg",
+        "fileName": "Isha_24.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_dvwg35uy4rswkzcdblv87.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_dvwg35uy4rswkzcdblv87.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_25.jpg",
+        "fileName": "Isha_25.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_f8uloi3z0j5bohue05ii0h.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_f8uloi3z0j5bohue05ii0h.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_26.jpg",
+        "fileName": "Isha_26.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_g8phwavn96lg6dxu8e07s.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_g8phwavn96lg6dxu8e07s.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_27.jpg",
+        "fileName": "Isha_27.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_gqfrdfjzxc9nzjy2frpcha.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_gqfrdfjzxc9nzjy2frpcha.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_28.jpg",
+        "fileName": "Isha_28.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_grgmfkj6d0ici0rdfrhe4k.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_grgmfkj6d0ici0rdfrhe4k.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_29.jpg",
+        "fileName": "Isha_29.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_h7vif3z7794ssam89m28li.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_h7vif3z7794ssam89m28li.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_3.jpg",
+        "fileName": "Isha_3.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_hxi6zfq1n9gykk4ol0ux8l.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_hxi6zfq1n9gykk4ol0ux8l.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_30.jpg",
+        "fileName": "Isha_30.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_ogftwmtik9m4vr6pah74x9.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_ogftwmtik9m4vr6pah74x9.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_31.jpg",
+        "fileName": "Isha_31.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_p5j0nw2q6niqg2sk9qxez.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_p5j0nw2q6niqg2sk9qxez.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_32.jpg",
+        "fileName": "Isha_32.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_qbkky089jpkow6m9mmxr.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_qbkky089jpkow6m9mmxr.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_33.jpg",
+        "fileName": "Isha_33.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_tj00hqrwt5u6x2h81fd9b.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_tj00hqrwt5u6x2h81fd9b.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_34.jpg",
+        "fileName": "Isha_34.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_tr0w8vo82j58eawf61w7s.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_tr0w8vo82j58eawf61w7s.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_4.jpg",
+        "fileName": "Isha_4.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_x7dipt3flx91w5bmdlvo.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_x7dipt3flx91w5bmdlvo.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_5.jpg",
+        "fileName": "Isha_5.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_xh8ot3zry4p9l65gu2nmof.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_xh8ot3zry4p9l65gu2nmof.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_6.jpg",
+        "fileName": "Isha_6.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_xsgahe2z6kam8rqzt4y0fl.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_xsgahe2z6kam8rqzt4y0fl.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_7.jpg",
+        "fileName": "Isha_7.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_xtka4p09hps4gs2k7063it.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_xtka4p09hps4gs2k7063it.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_8.jpg",
+        "fileName": "Isha_8.jpg"
       },
       {
-        "assetPath": "packs\/isha-default\/photos\/ReactNativeBlobUtilTmp_znt2indchvla6y3yzm3erg.jpg",
-        "fileName": "ReactNativeBlobUtilTmp_znt2indchvla6y3yzm3erg.jpg"
+        "assetPath": "packs\/isha-default\/photos\/Isha_9.jpg",
+        "fileName": "Isha_9.jpg"
       }
     ]
   },
