@@ -9,31 +9,24 @@ permissions:
   contents: read
   pull-requests: read
 
+# Stats PRs all rewrite the same data.json, so runs must not interleave: a run that checks
+# eligibility against main and then merges has to be the only one doing that at a time.
+# Serialised repo-wide (not per-PR) for that reason. cancel-in-progress would defeat the
+# point — a cancelled run leaves its PR open, which retry-stuck-stats-prs.yml sweeps up.
+concurrency:
+  group: datapack-automerge
+  cancel-in-progress: false
+
 jobs:
   check-and-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout PR head
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
-
-      - name: Fetch base branch
-        run: git fetch origin ${{ github.event.pull_request.base.ref }} --depth=1
-
-      - name: Check if this PR is a new pack or a pure stats update
-        id: check
-        run: node .github/scripts/check-automerge-eligible.mjs
-        env:
-          BASE_REF: origin/${{ github.event.pull_request.base.ref }}
-
       # Mints a short-lived installation token for the automerge GitHub App on every run,
       # instead of a long-lived PAT sitting in secrets. The App (not any personal account's
       # role) is the ruleset's sole bypass actor — see datapacks-repo/README.md for why a
-      # role-based bypass doesn't work safely here.
+      # role-based bypass doesn't work safely here. Generated before checkout so the same
+      # token authorises the stats-rebase force-push below.
       - name: Generate automerge app token
-        if: steps.check.outputs.automerge == 'true'
         id: app-token
         uses: actions/create-github-app-token@v1
         with:
@@ -41,6 +34,53 @@ jobs:
           private-key: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
           repositories: ${{ github.event.repository.name }}
+
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+          token: ${{ steps.app-token.outputs.token }}
+
+      # Full history of the base branch, not --depth=1: the rebase step needs a real merge
+      # base between the PR branch and main.
+      - name: Fetch base branch
+        run: git fetch origin ${{ github.event.pull_request.base.ref }}
+
+      # Replays a stats PR's +/-1 delta on top of current main instead of replaying the
+      # stale whole-file snapshot it was built from. No-op for every other kind of PR.
+      - name: Rebase stats onto current base
+        id: rebase
+        run: node .github/scripts/rebase-stats-pr.mjs
+        env:
+          BASE_REF: origin/${{ github.event.pull_request.base.ref }}
+          REBASED_DATA_PATH: ${{ runner.temp }}/rebased-data.json
+
+      # Force-push rather than commit on top: a merge conflict is decided by the merge base,
+      # so only re-parenting the branch onto main actually clears it. These are throwaway
+      # app-generated branches, so rewriting them costs nothing.
+      - name: Push rebased stats branch
+        if: steps.rebase.outputs.rebased == 'true'
+        env:
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          git checkout -B automerge-rebase "origin/$BASE_REF"
+          cp "${{ runner.temp }}/rebased-data.json" data.json
+          if git diff --quiet -- data.json; then
+            echo "Rebased content matches $BASE_REF — nothing left to merge, closing is left to the sweeper."
+            exit 0
+          fi
+          git config user.name "spanda-automerge[bot]"
+          git config user.email "spanda-automerge[bot]@users.noreply.github.com"
+          git commit -m "${{ github.event.pull_request.title }} (rebased onto $BASE_REF)" -- data.json
+          git push --force origin "automerge-rebase:refs/heads/$HEAD_BRANCH"
+
+      - name: Check if this PR is a new pack or a pure stats update
+        id: check
+        run: node .github/scripts/check-automerge-eligible.mjs
+        env:
+          BASE_REF: origin/${{ github.event.pull_request.base.ref }}
 
       - name: Auto-merge
         if: steps.check.outputs.automerge == 'true'

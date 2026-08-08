@@ -1,0 +1,60 @@
+name: Retry stuck stats PRs
+
+# A stats PR only gets one shot at auto-merge: the run fires on open, and if it loses the
+# race (another stats PR merged first, or its run was cancelled/queued out by the automerge
+# concurrency group) nothing ever re-triggers it and it sits open with a stale count.
+#
+# This sweep reopens those PRs. Reopening fires `reopened` on auto-merge-new-packs.yml,
+# which rebases the PR's delta onto current main and merges it. Reopening (rather than
+# merging here) keeps all the eligibility rules in one place.
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: retry-stuck-stats-prs
+  cancel-in-progress: false
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    steps:
+      # The App token is what makes this work: events caused by the default GITHUB_TOKEN
+      # don't trigger further workflow runs, so a reopen with it would be a silent no-op.
+      - name: Generate automerge app token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.AUTOMERGE_APP_ID }}
+          private-key: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
+      - name: Reopen stuck stats PRs
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          now=$(date -u +%s)
+          gh pr list --repo "$REPO" --state open --limit 100 \
+            --json number,headRefName,createdAt \
+            --jq '.[] | select(.headRefName | startswith("stats-")) | "\(.number) \(.createdAt)"' \
+          | while read -r number created; do
+              age=$(( now - $(date -u -d "$created" +%s) ))
+              # Younger than 5 min: its own run is probably still queued behind the
+              # automerge concurrency lock. Older than 24h: it's stuck on something this
+              # sweep can't fix (ineligible shape, missing secret) — stop churning it.
+              if [ "$age" -lt 300 ] || [ "$age" -gt 86400 ]; then
+                echo "Skipping #$number (age ${age}s)"
+                continue
+              fi
+              echo "Reopening #$number to retry auto-merge (age ${age}s)"
+              gh pr close "$number" --repo "$REPO"
+              gh pr reopen "$number" --repo "$REPO"
+            done

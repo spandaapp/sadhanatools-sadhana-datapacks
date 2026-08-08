@@ -79,6 +79,31 @@ sits open for a maintainer to review and merge by hand. `DataPackStatsRepository
 taps, download counts) also goes through this same branch + PR flow now — see the
 `stats-only` category above.
 
+### Concurrent stats PRs: last write wins on the *count*, not the file
+
+Every stats PR rewrites the whole of `data.json` from the snapshot the app read when it cut
+the branch. Two taps close together therefore used to collide: whichever PR merged second
+conflicted, and since nothing re-triggers a stuck PR, it sat open forever with a stale count
+baked into it.
+
+`.github/scripts/rebase-stats-pr.mjs` runs before the eligibility check and fixes this by
+replaying the PR's *intent* rather than its file content: it diffs merge-base → head to
+recover the intended delta (normally a single ±1), applies that delta to whatever `data.json`
+says on `main` right now, and the workflow force-pushes the PR branch onto `main` with the
+result. So a like landing here can no longer clobber a download landing there — both counts
+survive. Anything that isn't a plain single-pack numeric change is left untouched for the
+normal path.
+
+Two more pieces close the race properly:
+
+- The auto-merge workflow takes a repo-wide `concurrency` lock, so rebase → check → merge
+  runs as one uninterrupted sequence per PR.
+- `.github/workflows/retry-stuck-stats-prs.yml` sweeps every 20 minutes and reopens open
+  `stats-*` PRs between 5 minutes and 24 hours old (reopening re-fires the auto-merge
+  workflow, which rebases them). This catches PRs whose run was cancelled or queued out by
+  that concurrency lock. It uses the App token deliberately — events caused by the default
+  `GITHUB_TOKEN` don't trigger workflow runs, so a reopen with it would be a silent no-op.
+
 ### One-time repo setup
 
 This repo uses a **Ruleset** (Settings → Rules → Rulesets), not classic branch protection.
