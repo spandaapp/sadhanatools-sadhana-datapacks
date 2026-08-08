@@ -15,26 +15,31 @@
     {
       "name": "SCK",
       "dailyTargetCycles": 2,
+      "gracePeriodDays": 0,
       "sortOrder": 2
     },
     {
       "name": "Shambhavi",
       "dailyTargetCycles": 2,
+      "gracePeriodDays": 0,
       "sortOrder": 0
     },
     {
       "name": "Shoonya",
       "dailyTargetCycles": 2,
+      "gracePeriodDays": 0,
       "sortOrder": 1
     },
     {
       "name": "Surya Kriya",
       "dailyTargetCycles": 7,
+      "gracePeriodDays": 0,
       "sortOrder": 3
     },
     {
       "name": "Surya Shakti",
       "dailyTargetCycles": 33,
+      "gracePeriodDays": 0,
       "sortOrder": 4
     }
   ],
@@ -54,6 +59,13 @@
         1500000,
         1800000
       ],
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "volume": 0.699999988079071,
+      "beepDurationMs": 1000,
+      "vibrate": false,
+      "reminderEnabled": false,
+      "reminderMinutesOfDay": 540,
+      "reminderText": "",
       "sortOrder": 0
     },
     {
@@ -70,6 +82,13 @@
         2100000,
         2400000
       ],
+      "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
+      "volume": 0.699999988079071,
+      "beepDurationMs": 1000,
+      "vibrate": false,
+      "reminderEnabled": false,
+      "reminderMinutesOfDay": 540,
+      "reminderText": "",
       "sortOrder": 0
     }
   ],
@@ -77,8 +96,8 @@
     {
       "label": "Morning Sadhana",
       "type": "REGULAR",
-      "regularHour": 4,
-      "regularMinute": 0,
+      "regularHour": 23,
+      "regularMinute": 28,
       "intervalStartMinutesOfDay": 540,
       "intervalEndMinutesOfDay": 1020,
       "intervalChimeDurationMillis": 1000,
@@ -87,11 +106,19 @@
       "audioAlbumId": "00000000-0000-4000-a000-000000000001",
       "useRandomBackgroundAlbum": true,
       "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
-      "volume": 1,
+      "volume": 0.4865535795688629,
+      "fadeDurationSeconds": 9,
       "vibrate": false,
+      "loopAudio": true,
+      "androidFullScreenIntent": true,
+      "showStopButton": true,
+      "showAlarmName": true,
       "notificationTitle": "Spanda alarm",
       "notificationBody": "Time for your morning sadhana",
-      "enabled": true
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     },
     {
       "label": "Breath",
@@ -104,10 +131,18 @@
       "useRandomAlbum": false,
       "useRandomBackgroundAlbum": false,
       "volume": 1,
+      "fadeDurationSeconds": 0,
       "vibrate": false,
+      "loopAudio": false,
+      "androidFullScreenIntent": false,
+      "showStopButton": false,
+      "showAlarmName": false,
       "notificationTitle": "Reminder",
       "notificationBody": "Breath",
-      "enabled": true
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     },
     {
       "label": "IE Crash Course",
@@ -120,10 +155,18 @@
       "useRandomAlbum": false,
       "useRandomBackgroundAlbum": false,
       "volume": 1,
+      "fadeDurationSeconds": 0,
       "vibrate": false,
+      "loopAudio": false,
+      "androidFullScreenIntent": false,
+      "showStopButton": false,
+      "showAlarmName": false,
       "notificationTitle": "Reminder",
       "notificationBody": "IE Crash Course",
-      "enabled": true
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     },
     {
       "label": "Evening Sadhana",
@@ -139,10 +182,18 @@
       "useRandomBackgroundAlbum": true,
       "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
       "volume": 1,
+      "fadeDurationSeconds": 0,
       "vibrate": false,
+      "loopAudio": true,
+      "androidFullScreenIntent": true,
+      "showStopButton": true,
+      "showAlarmName": false,
       "notificationTitle": "Spanda alarm",
       "notificationBody": "Time for your evening sadhana",
-      "enabled": true
+      "enabled": true,
+      "repeatWeekdaysMask": 127,
+      "interruptOngoingMedia": true,
+      "minRingSeconds": 0
     }
   ],
   "widgets": [],
@@ -401,5 +452,11 @@
         "fileName": "ReactNativeBlobUtilTmp_znt2indchvla6y3yzm3erg.jpg"
       }
     ]
-  }
+  },
+  "icsAssets": [
+    {
+      "assetPath": "packs\/isha-default\/ics\/isha_selected_events_v2.ics",
+      "fileName": "isha_selected_events_v2.ics"
+    }
+  ]
 }
