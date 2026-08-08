@@ -7,7 +7,7 @@
       "description": "",
       "version": 1,
       "manifestPath": "packs\/isha-default\/pack.json",
-      "approved": false
+      "approved": true
     },
     {
       "id": "empty",
