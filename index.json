@@ -45,7 +45,7 @@
       "id": "isha-default",
       "displayName": "Isha - Default",
       "description": "",
-      "version": 3,
+      "version": 4,
       "manifestPath": "packs\/isha-default\/pack.json",
       "approved": true
     }
