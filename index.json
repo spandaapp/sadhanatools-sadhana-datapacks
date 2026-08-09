@@ -55,7 +55,7 @@
       "description": "",
       "version": 1,
       "manifestPath": "packs\/temp\/pack.json",
-      "approved": false
+      "approved": true
     }
   ]
 }
