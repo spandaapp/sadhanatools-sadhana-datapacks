@@ -6,10 +6,14 @@
   "moodNames": [
     "Anger",
     "Bliss",
+    "Clarity",
+    "Creativity",
     "Energy",
     "Grace",
+    "Hunger",
     "Joy",
-    "Sad"
+    "Sad",
+    "Sleepy"
   ],
   "practices": [
     {
@@ -96,8 +100,8 @@
     {
       "label": "Morning Sadhana",
       "type": "REGULAR",
-      "regularHour": 23,
-      "regularMinute": 28,
+      "regularHour": 8,
+      "regularMinute": 1,
       "intervalStartMinutesOfDay": 540,
       "intervalEndMinutesOfDay": 1020,
       "intervalChimeDurationMillis": 1000,
@@ -457,10 +461,5 @@
       }
     ]
   },
-  "icsAssets": [
-    {
-      "assetPath": "packs\/isha-default\/ics\/isha_selected_events_v2.ics",
-      "fileName": "isha_selected_events_v2.ics"
-    }
-  ]
+  "icsAssets": []
 }
