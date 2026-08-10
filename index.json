@@ -15,7 +15,7 @@
       "description": "",
       "version": 1,
       "manifestPath": "packs\/test\/pack.json",
-      "approved": false
+      "approved": true
     },
     {
       "id": "test2",
