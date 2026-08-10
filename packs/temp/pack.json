@@ -130,7 +130,7 @@
     {
       "label": "Breath",
       "type": "INTERVAL",
-      "intervalMillis": 15000,
+      "intervalMillis": 300000,
       "intervalStartMinutesOfDay": 360,
       "intervalEndMinutesOfDay": 1320,
       "intervalChimeDurationMillis": 1000,
@@ -138,7 +138,7 @@
       "useRandomAlbum": false,
       "useRandomBackgroundAlbum": false,
       "backgroundImagePath": "images\/albums\/nature\/nature_1.jpeg",
-      "volume": 0,
+      "volume": 0.18858595192432404,
       "fadeDurationSeconds": 0,
       "vibrate": false,
       "loopAudio": false,
@@ -148,9 +148,9 @@
       "showTodayEvents": true,
       "notificationTitle": "Reminder",
       "notificationBody": "Breath",
-      "enabled": false,
+      "enabled": true,
       "repeatWeekdaysMask": 127,
-      "interruptOngoingMedia": false,
+      "interruptOngoingMedia": true,
       "minRingSeconds": 0
     },
     {
@@ -208,377 +208,8 @@
       "minRingSeconds": 0
     }
   ],
-  "widgets": [
-    {
-      "config": {
-        "title": "Life",
-        "notes": "",
-        "type": "COUNT_DOWN",
-        "anchorDateMs": 3622905000000,
-        "progressStartDateMs": 1035225000000,
-        "isAllDay": true,
-        "repeatRule": "NONE",
-        "notificationsEnabled": true,
-        "streakMilestonesEnabled": true,
-        "displayMode": "PERCENTAGE",
-        "unitMode": "YEARS",
-        "rounding": "TRUNCATE",
-        "showDetailedTime": true,
-        "showAccessoryLabel": true,
-        "accessoryIndicator": "LEFT",
-        "countdownValueAxis": "REMAINING",
-        "templateId": "SPLIT_STAT",
-        "style": {
-          "background": {
-            "type": "image",
-            "uri": "file:\/\/\/data\/user\/0\/com.sadhanatools.alarm\/files\/widget_backgrounds\/bg_4775aaf3-1930-4f7e-b227-1e9f3f1530e9.jpg",
-            "scale": "CENTER_CROP",
-            "overlayAlpha": 0.589942216873169,
-            "brightness": 1,
-            "focusX": 0.5,
-            "focusY": 0.6931727528572083,
-            "zoom": 1
-          },
-          "primaryColor": {
-            "hex": "#FFB43143",
-            "alpha": 1
-          },
-          "secondaryColor": {
-            "hex": "#B3FFFFFF",
-            "alpha": 1
-          },
-          "progressColor": {
-            "hex": "#FFE94560",
-            "alpha": 1
-          },
-          "emptyTrackColor": {
-            "hex": "#B3FFFFFF",
-            "alpha": 0.44999998807907104
-          },
-          "labelStyle": {
-            "fontFamily": "RETRO",
-            "fontSizeSp": 12,
-            "fontWeight": 400,
-            "color": {
-              "hex": "#FFB43143",
-              "alpha": 1
-            },
-            "textAlign": "center"
-          },
-          "valueStyle": {
-            "fontFamily": "RETRO",
-            "fontSizeSp": 28,
-            "fontWeight": 700,
-            "color": {
-              "hex": "#FFB43143",
-              "alpha": 1
-            },
-            "textAlign": "center"
-          },
-          "accessoryStyle": {
-            "fontFamily": "SANS",
-            "fontSizeSp": 11,
-            "fontWeight": 400,
-            "color": {
-              "hex": "#FFB43143",
-              "alpha": 1
-            },
-            "textAlign": "center"
-          },
-          "containerCornerRadiusDp": 16,
-          "namePosition": "ABOVE",
-          "numberAlignment": "CENTER",
-          "trackThicknessDp": 8
-        },
-        "showIcon": true,
-        "iconKey": "schedule",
-        "progressStyle": "NONE",
-        "progressDirection": "NORMAL",
-        "showTitle": true,
-        "showRemainingTime": true,
-        "showEventDate": false,
-        "showDetails": false,
-        "showProgress": true,
-        "moonOptions": {
-          "showIllumination": false,
-          "showSunTimes": false,
-          "showMoonTimes": false,
-          "showPhaseEvents": false,
-          "showPhaseName": false,
-          "darkPhaseStyle": "TRANSPARENT"
-        },
-        "lifeOptions": {
-          "birthDateMs": 0,
-          "expectedLifespanYears": 84
-        },
-        "yearOptions": {
-          "showDaysRemaining": true
-        },
-        "dotGridOptions": {
-          "mode": "LITERAL",
-          "scaleDivisor": 1,
-          "showCountLabel": true
-        },
-        "ringDesignOptions": {
-          "diameterScale": 1
-        },
-        "dataOptions": {
-          "rangeDays": 84,
-          "astroBody": "MOON",
-          "maxRows": 4,
-          "showCountLabel": true
-        }
-      },
-      "enabled": true,
-      "sortOrder": 0
-    },
-    {
-      "config": {
-        "title": "Mahakshetra Nirmana",
-        "notes": "",
-        "type": "COUNT_DOWN",
-        "anchorDateMs": 1793125800000,
-        "progressStartDateMs": 1786127400000,
-        "isAllDay": true,
-        "repeatRule": "NONE",
-        "notificationsEnabled": true,
-        "streakMilestonesEnabled": true,
-        "displayMode": "REMAINING_TIME",
-        "unitMode": "DAYS",
-        "rounding": "TRUNCATE",
-        "showDetailedTime": true,
-        "showAccessoryLabel": true,
-        "accessoryIndicator": "TO_GO",
-        "countdownValueAxis": "REMAINING",
-        "templateId": "MINIMAL",
-        "style": {
-          "background": {
-            "type": "image",
-            "uri": "file:\/\/\/data\/user\/0\/com.sadhanatools.alarm\/files\/widget_backgrounds\/bg_3c7c299f-e62e-40e1-bc43-e151c05bdc00.jpg",
-            "scale": "CENTER_CROP",
-            "overlayAlpha": 0.5901610851287842,
-            "brightness": 1,
-            "focusX": 0.5,
-            "focusY": 0.319938987493515,
-            "zoom": 1
-          },
-          "primaryColor": {
-            "hex": "#FFC4BE8D",
-            "alpha": 1
-          },
-          "secondaryColor": {
-            "hex": "#B3FFFFFF",
-            "alpha": 1
-          },
-          "progressColor": {
-            "hex": "#FFE94560",
-            "alpha": 1
-          },
-          "emptyTrackColor": {
-            "hex": "#B3FFFFFF",
-            "alpha": 0.44999998807907104
-          },
-          "labelStyle": {
-            "fontFamily": "CURSIVE",
-            "fontSizeSp": 12,
-            "fontWeight": 400,
-            "color": {
-              "hex": "#FFC4BE8D",
-              "alpha": 1
-            },
-            "textAlign": "center"
-          },
-          "valueStyle": {
-            "fontFamily": "CURSIVE",
-            "fontSizeSp": 28,
-            "fontWeight": 700,
-            "color": {
-              "hex": "#FFC4BE8D",
-              "alpha": 1
-            },
-            "textAlign": "center"
-          },
-          "accessoryStyle": {
-            "fontFamily": "SANS",
-            "fontSizeSp": 11,
-            "fontWeight": 400,
-            "color": {
-              "hex": "#FFC4BE8D",
-              "alpha": 1
-            },
-            "textAlign": "center"
-          },
-          "containerCornerRadiusDp": 16,
-          "namePosition": "ABOVE",
-          "numberAlignment": "START",
-          "trackThicknessDp": 8
-        },
-        "showIcon": true,
-        "iconKey": "none",
-        "progressStyle": "LINEAR",
-        "progressDirection": "NORMAL",
-        "showTitle": true,
-        "showRemainingTime": true,
-        "showEventDate": true,
-        "showDetails": false,
-        "showProgress": false,
-        "moonOptions": {
-          "showIllumination": false,
-          "showSunTimes": false,
-          "showMoonTimes": false,
-          "showPhaseEvents": false,
-          "showPhaseName": false,
-          "darkPhaseStyle": "TRANSPARENT"
-        },
-        "lifeOptions": {
-          "birthDateMs": 0,
-          "expectedLifespanYears": 84
-        },
-        "yearOptions": {
-          "showDaysRemaining": true
-        },
-        "dotGridOptions": {
-          "mode": "LITERAL",
-          "scaleDivisor": 1,
-          "showCountLabel": true
-        },
-        "ringDesignOptions": {
-          "diameterScale": 1
-        },
-        "dataOptions": {
-          "rangeDays": 84,
-          "astroBody": "MOON",
-          "maxRows": 4,
-          "showCountLabel": true
-        }
-      },
-      "enabled": true,
-      "sortOrder": 0
-    },
-    {
-      "config": {
-        "title": "Shoonya",
-        "notes": "",
-        "type": "TIME_SINCE",
-        "anchorDateMs": 1777573800000,
-        "progressStartDateMs": 0,
-        "isAllDay": true,
-        "repeatRule": "NONE",
-        "notificationsEnabled": true,
-        "streakMilestonesEnabled": true,
-        "displayMode": "REMAINING_TIME",
-        "unitMode": "DAYS",
-        "rounding": "TRUNCATE",
-        "showDetailedTime": true,
-        "showAccessoryLabel": true,
-        "accessoryIndicator": "PASSED",
-        "countdownValueAxis": "REMAINING",
-        "templateId": "MINIMAL",
-        "style": {
-          "background": {
-            "type": "image",
-            "uri": "file:\/\/\/data\/user\/0\/com.sadhanatools.alarm\/files\/widget_backgrounds\/bg_c58a164e-ea46-4308-b6cf-8e338ad65996.jpg",
-            "scale": "CENTER_CROP",
-            "overlayAlpha": 0.26319316029548645,
-            "brightness": 1,
-            "focusX": 0.5,
-            "focusY": 0.5,
-            "zoom": 1
-          },
-          "primaryColor": {
-            "hex": "#FF76A0EC",
-            "alpha": 1
-          },
-          "secondaryColor": {
-            "hex": "#B3FFFFFF",
-            "alpha": 1
-          },
-          "progressColor": {
-            "hex": "#FFE94560",
-            "alpha": 1
-          },
-          "emptyTrackColor": {
-            "hex": "#B3FFFFFF",
-            "alpha": 0.44999998807907104
-          },
-          "labelStyle": {
-            "fontFamily": "RETRO",
-            "fontSizeSp": 12,
-            "fontWeight": 400,
-            "color": {
-              "hex": "#FF76A0EC",
-              "alpha": 1
-            },
-            "textAlign": "center"
-          },
-          "valueStyle": {
-            "fontFamily": "RETRO",
-            "fontSizeSp": 28,
-            "fontWeight": 700,
-            "color": {
-              "hex": "#FF76A0EC",
-              "alpha": 1
-            },
-            "textAlign": "center"
-          },
-          "accessoryStyle": {
-            "fontFamily": "SANS",
-            "fontSizeSp": 11,
-            "fontWeight": 400,
-            "color": {
-              "hex": "#FF76A0EC",
-              "alpha": 1
-            },
-            "textAlign": "center"
-          },
-          "containerCornerRadiusDp": 16,
-          "namePosition": "ABOVE",
-          "numberAlignment": "CENTER",
-          "trackThicknessDp": 8
-        },
-        "showIcon": true,
-        "iconKey": "none",
-        "progressStyle": "LINEAR",
-        "progressDirection": "NORMAL",
-        "showTitle": true,
-        "showRemainingTime": true,
-        "showEventDate": false,
-        "showDetails": false,
-        "showProgress": true,
-        "moonOptions": {
-          "showIllumination": false,
-          "showSunTimes": false,
-          "showMoonTimes": false,
-          "showPhaseEvents": false,
-          "showPhaseName": false,
-          "darkPhaseStyle": "TRANSPARENT"
-        },
-        "lifeOptions": {
-          "birthDateMs": 0,
-          "expectedLifespanYears": 84
-        },
-        "yearOptions": {
-          "showDaysRemaining": true
-        },
-        "dotGridOptions": {
-          "mode": "LITERAL",
-          "scaleDivisor": 1,
-          "showCountLabel": true
-        },
-        "ringDesignOptions": {
-          "diameterScale": 1
-        },
-        "dataOptions": {
-          "rangeDays": 84,
-          "astroBody": "MOON",
-          "maxRows": 4,
-          "showCountLabel": true
-        }
-      },
-      "enabled": true,
-      "sortOrder": 0
-    }
-  ],
+  "widgets": [],
+  "widgetAssets": [],
   "audioAlbum": {
     "albumId": "00000000-0000-4000-a000-000000000001",
     "albumName": "Isha",
@@ -835,5 +466,10 @@
       }
     ]
   },
-  "icsAssets": []
+  "icsAssets": [
+    {
+      "assetPath": "packs\/temp\/ics\/isha_selected_events_v2.ics",
+      "fileName": "isha_selected_events_v2.ics"
+    }
+  ]
 }
