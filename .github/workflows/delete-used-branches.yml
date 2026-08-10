@@ -1,0 +1,208 @@
+name: Delete branches after use
+
+# Every branch in this repo except `main` and `feedback-screenshots` is throwaway: the app
+# (DataPackPrPublisher) pushes `create-*` / `edit-*` / `stats-*`, open-approval-prs.yml
+# pushes `approve-*`, and auto-merge-new-packs.yml force-pushes rebased stats branches. None
+# of them has a life after its PR closes, and left alone they accumulate — this repo had
+# ~120 dead branches before this workflow existed.
+#
+# Two triggers, because they cover different failure modes:
+#
+#   pull_request: closed  — the normal path. Fires on merge AND on close-without-merge, so
+#                           it covers more than the repo's built-in "Automatically delete
+#                           head branches" setting, which only handles merges. Stats PRs
+#                           get closed unmerged fairly often (superseded by a newer count,
+#                           or rebased to a no-op), so that gap is the common case here.
+#
+#   schedule              — the sweeper. Catches branches pushed without a PR ever being
+#                           opened (app crashed between createBranch and createPullRequest),
+#                           and branches whose close event was missed because the run was
+#                           cancelled or the workflow was down.
+#
+# NEVER deleted, and why:
+#   main                 — obviously.
+#   feedback-screenshots — long-lived by design. FeedbackSubmitter commits screenshots there
+#                          and links them from GitHub issue bodies (the REST API has no
+#                          issue-attachment endpoint). Deleting it breaks the image in every
+#                          bug report ever filed. Add to KEEP_BRANCHES, never remove.
+
+on:
+  pull_request:
+    types: [closed]
+  schedule:
+    - cron: "37 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Log what would be deleted without deleting anything"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pull-requests: read
+
+# Not per-PR: the sweeper reads "which branches have open PRs" and then deletes, so a
+# concurrent run doing the same thing could delete a branch whose PR opened in between.
+# Not cancel-in-progress — a cancelled run just leaves branches for the next sweep.
+concurrency:
+  group: delete-used-branches
+  cancel-in-progress: false
+
+env:
+  # Space-separated exact branch names that are never deleted by either job.
+  KEEP_BRANCHES: "main feedback-screenshots"
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Normal path: a PR closed, so its head branch has served its purpose.
+  # ---------------------------------------------------------------------------
+  delete-head-branch:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      # Same App as the other workflows. The default GITHUB_TOKEN is `contents: read` here
+      # and deleting a ref needs write; the App already has Contents: Read and write.
+      - name: Generate automerge app token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.AUTOMERGE_APP_ID }}
+          private-key: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
+      - name: Delete the PR head branch
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REPO: ${{ github.repository }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+
+          # A fork's branch isn't ours to delete, and the App isn't installed there anyway.
+          if [ "$HEAD_REPO" != "$REPO" ]; then
+            echo "Head branch lives on $HEAD_REPO, not $REPO — nothing to delete."
+            exit 0
+          fi
+
+          for keep in $KEEP_BRANCHES; do
+            if [ "$HEAD_BRANCH" = "$keep" ]; then
+              echo "Refusing to delete protected branch $HEAD_BRANCH."
+              exit 0
+            fi
+          done
+
+          # Two PRs can share a head branch (a stats PR reopened against a different base,
+          # for instance). Deleting it would silently close the other one.
+          others=$(gh pr list --repo "$REPO" --state open --head "$HEAD_BRANCH" \
+            --json number --jq 'length')
+          if [ "$others" -gt 0 ]; then
+            echo "$HEAD_BRANCH still has $others open PR(s) — keeping it."
+            exit 0
+          fi
+
+          echo "Deleting $HEAD_BRANCH (PR #$PR_NUMBER closed)."
+          gh api -X DELETE "repos/$REPO/git/refs/heads/$HEAD_BRANCH" --silent \
+            || echo "Already gone (deleted by the repo setting or a previous run)."
+
+  # ---------------------------------------------------------------------------
+  # Sweeper: anything with no open PR and no recent activity is dead by definition.
+  # ---------------------------------------------------------------------------
+  sweep-orphaned-branches:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate automerge app token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.AUTOMERGE_APP_ID }}
+          private-key: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
+      # fetch-depth: 0 so every remote branch is present locally — the age check below reads
+      # each branch tip's committer date, which a single-ref shallow checkout doesn't have.
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Delete branches with no open PR
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REPO: ${{ github.repository }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+
+          # The app pushes a branch and opens its PR in two separate API calls. A branch
+          # caught between them has no open PR but is very much in use, so only branches
+          # untouched for this long are candidates.
+          GRACE_SECONDS=7200
+
+          # One call, not one per branch: `gh pr list` here is the authority on what's live.
+          gh pr list --repo "$REPO" --state open --limit 200 \
+            --json headRefName --jq '.[].headRefName' | sort -u > /tmp/open-pr-heads.txt
+          echo "Open PR head branches: $(wc -l < /tmp/open-pr-heads.txt)"
+
+          now=$(date -u +%s)
+          deleted=0
+          kept=0
+
+          # Into a file, then loop over the file: a `... | while read` pipeline runs the body
+          # in a subshell, so the counters below would be discarded at the end of the loop.
+          # lstrip=3 turns refs/remotes/origin/foo into foo.
+          git for-each-ref --format='%(refname:lstrip=3) %(committerdate:unix)' \
+            refs/remotes/origin > /tmp/remote-branches.txt
+
+          while read -r branch tip_epoch; do
+              # `origin/HEAD` shows up as a bare "HEAD" symref, not a real branch.
+              if [ "$branch" = "HEAD" ]; then
+                continue
+              fi
+
+              # Written as a full `if`, not `[ ... ] && skip=...`: under `set -e` a trailing
+              # `&&` that evaluates false is a failing command and kills the whole step.
+              skip=""
+              for keep in $KEEP_BRANCHES; do
+                if [ "$branch" = "$keep" ]; then
+                  skip="protected"
+                fi
+              done
+              if [ -n "$skip" ]; then
+                echo "  keep    $branch ($skip)"
+                kept=$((kept + 1))
+                continue
+              fi
+
+              if grep -Fxq "$branch" /tmp/open-pr-heads.txt; then
+                echo "  keep    $branch (open PR)"
+                kept=$((kept + 1))
+                continue
+              fi
+
+              age=$(( now - tip_epoch ))
+              if [ "$age" -lt "$GRACE_SECONDS" ]; then
+                echo "  keep    $branch (only ${age}s old, within grace)"
+                kept=$((kept + 1))
+                continue
+              fi
+
+              if [ "$DRY_RUN" = "true" ]; then
+                echo "  DRY-RUN $branch (age ${age}s, no open PR)"
+                continue
+              fi
+
+              echo "  delete  $branch (age ${age}s, no open PR)"
+              gh api -X DELETE "repos/$REPO/git/refs/heads/$branch" --silent \
+                || echo "          failed or already gone — next sweep retries."
+              deleted=$((deleted + 1))
+          done < /tmp/remote-branches.txt
+
+          echo "Sweep complete: deleted $deleted, kept $kept."
