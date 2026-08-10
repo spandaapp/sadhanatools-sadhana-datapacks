@@ -208,7 +208,128 @@
       "minRingSeconds": 0
     }
   ],
-  "widgets": [],
+  "widgets": [
+    {
+      "config": {
+        "title": "Event name",
+        "notes": "",
+        "type": "COUNT_DOWN",
+        "anchorDateMs": 1786905000000,
+        "progressStartDateMs": 1786300200000,
+        "isAllDay": true,
+        "repeatRule": "NONE",
+        "notificationsEnabled": true,
+        "streakMilestonesEnabled": true,
+        "displayMode": "REMAINING_TIME",
+        "unitMode": "DAYS",
+        "rounding": "TRUNCATE",
+        "showDetailedTime": true,
+        "showAccessoryLabel": true,
+        "accessoryIndicator": "LEFT",
+        "countdownValueAxis": "REMAINING",
+        "templateId": "MINIMAL",
+        "style": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#FFFFFFFF",
+              "alpha": 0.5
+            }
+          },
+          "primaryColor": {
+            "hex": "#FF000000",
+            "alpha": 1
+          },
+          "secondaryColor": {
+            "hex": "#FF000000",
+            "alpha": 0.699999988079071
+          },
+          "progressColor": {
+            "hex": "#FFE94560",
+            "alpha": 1
+          },
+          "emptyTrackColor": {
+            "hex": "#FF000000",
+            "alpha": 0.3149999976158142
+          },
+          "labelStyle": {
+            "fontFamily": "SANS",
+            "fontSizeSp": 12,
+            "fontWeight": 400,
+            "color": {
+              "hex": "#FF000000",
+              "alpha": 1
+            },
+            "textAlign": "center"
+          },
+          "valueStyle": {
+            "fontFamily": "SANS",
+            "fontSizeSp": 28,
+            "fontWeight": 700,
+            "color": {
+              "hex": "#FF000000",
+              "alpha": 1
+            },
+            "textAlign": "center"
+          },
+          "accessoryStyle": {
+            "fontFamily": "SANS",
+            "fontSizeSp": 11,
+            "fontWeight": 400,
+            "color": {
+              "hex": "#FF000000",
+              "alpha": 1
+            },
+            "textAlign": "center"
+          },
+          "containerCornerRadiusDp": 16,
+          "namePosition": "ABOVE",
+          "numberAlignment": "CENTER",
+          "trackThicknessDp": 8
+        },
+        "showIcon": true,
+        "iconKey": "none",
+        "progressStyle": "LINEAR",
+        "progressDirection": "NORMAL",
+        "showTitle": true,
+        "showRemainingTime": true,
+        "showEventDate": true,
+        "showDetails": true,
+        "showProgress": true,
+        "moonOptions": {
+          "showIllumination": false,
+          "showSunTimes": false,
+          "showMoonTimes": false,
+          "showPhaseEvents": false,
+          "showPhaseName": false,
+          "darkPhaseStyle": "TRANSPARENT"
+        },
+        "lifeOptions": {
+          "birthDateMs": 0,
+          "expectedLifespanYears": 84
+        },
+        "yearOptions": {
+          "showDaysRemaining": true
+        },
+        "dotGridOptions": {
+          "mode": "LITERAL",
+          "scaleDivisor": 1,
+          "showCountLabel": true
+        },
+        "ringDesignOptions": {
+          "diameterScale": 1
+        },
+        "dataOptions": {
+          "rangeDays": 84,
+          "astroBody": "MOON",
+          "maxRows": 4,
+          "showCountLabel": true
+        }
+      },
+      "enabled": true,
+      "sortOrder": 0
+    }
+  ],
   "widgetAssets": [],
   "audioAlbum": {
     "albumId": "00000000-0000-4000-a000-000000000001",
