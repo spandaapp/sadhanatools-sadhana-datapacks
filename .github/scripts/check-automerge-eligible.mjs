@@ -77,8 +77,42 @@ function packEntries(file) {
     : new Map(Object.entries(file.packs ?? {}));
 }
 
+// Fields a submission may never assert about itself. `approved` is the human curation gate;
+// likes/downloads are counts the repo accumulates, not an opening balance a submitter picks.
+const SUBMISSION_CANNOT_CLAIM = ["approved", "likes", "downloads"];
+
+// isAdditiveOnly deliberately says nothing about the *contents* of the entry that was added —
+// it only proves pre-existing entries are untouched and that exactly one entry appeared. That
+// leaves a hole: a submission declaring its own pack `"approved": true` is a perfectly legal
+// additive change, so it auto-merges, and open-approval-prs.mjs then skips it because it only
+// ever looks at packs whose flag is not already true. The pack lands visible-by-default with
+// no human ever seeing it — the exact outcome the approval PR exists to prevent.
+//
+// Absent or default-valued is fine (the app re-serialises every field it knows about, so a new
+// entry legitimately arrives carrying `"approved": false`); any other value is a claim.
+function privilegeClaim(entry) {
+  if (entry === null || typeof entry !== "object" || Array.isArray(entry)) return null;
+  for (const field of SUBMISSION_CANNOT_CLAIM) {
+    if (field in entry && !deepEqual(entry[field], ENTRY_DEFAULTS[field])) {
+      return `${field}=${JSON.stringify(entry[field])}`;
+    }
+  }
+  return null;
+}
+
+// The one id present in headFile but not baseFile. Only meaningful once isAdditiveOnly has
+// confirmed there is exactly one.
+function addedEntry(baseFile, headFile) {
+  if (baseFile === null || headFile === null) return null;
+  const baseById = packEntries(baseFile);
+  for (const [id, entry] of packEntries(headFile)) {
+    if (!baseById.has(id)) return { id, entry };
+  }
+  return null;
+}
+
 // Confirms every pre-existing entry is unchanged in headFile, and exactly one new entry
-// was added.
+// was added. Says nothing about that new entry's contents — see privilegeClaim.
 function isAdditiveOnly(baseFile, headFile) {
   if (baseFile === null) return true; // nothing to compare against — shouldn't happen in practice
   if (headFile === null) return false; // file was deleted
@@ -126,6 +160,18 @@ function checkNewPackOnly() {
   const headData = JSON.parse(readFileSync("data.json", "utf8"));
   if (!isAdditiveOnly(baseData, headData)) {
     return { eligible: false, reason: "data.json changed more than adding one new entry" };
+  }
+  for (const [file, added] of [
+    ["index.json", addedEntry(baseIndex, headIndex)],
+    ["data.json", addedEntry(baseData, headData)],
+  ]) {
+    const claim = added && privilegeClaim(added.entry);
+    if (claim) {
+      return {
+        eligible: false,
+        reason: `new ${file} entry for ${added.id} sets ${claim} — a submission can't grant itself that`,
+      };
+    }
   }
   return { eligible: true, reason: "pure new-pack addition" };
 }
