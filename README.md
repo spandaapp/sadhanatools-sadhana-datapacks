@@ -144,6 +144,37 @@ Two more pieces close the race properly:
   that concurrency lock. It uses the App token deliberately — events caused by the default
   `GITHUB_TOKEN` don't trigger workflow runs, so a reopen with it would be a silent no-op.
 
+### Branches are deleted after use
+
+Every branch here except `main` and `feedback-screenshots` is machine-generated and
+disposable — the app pushes `create-*`, `edit-*` and `stats-*`, `open-approval-prs.yml`
+pushes `approve-*`, and the automerge workflow force-pushes rebased stats branches. Nothing
+used to remove them, and roughly 120 dead branches piled up.
+
+`.github/workflows/delete-used-branches.yml` cleans up on two triggers:
+
+- **`pull_request: closed`** — deletes the head branch as soon as its PR closes. This fires
+  on close-*without*-merge too, which is why the workflow exists rather than just ticking
+  GitHub's "Automatically delete head branches" setting: that setting only covers merges,
+  and stats PRs are routinely closed unmerged (superseded by a newer count, or rebased down
+  to a no-op).
+- **hourly `schedule`** — sweeps any branch with no open PR whose tip is older than a 2 hour
+  grace period. This catches branches that never got a PR at all (the app pushes the branch
+  and opens the PR in two separate API calls, so a crash in between orphans one) and any
+  close event that was missed. Run it with `workflow_dispatch` and `dry_run: true` to see
+  what it would remove without removing anything.
+
+**`feedback-screenshots` must stay on the keep-list forever.** `FeedbackSubmitter` commits
+bug-report screenshots to that branch and links them from issue bodies, because the REST API
+has no issue-attachment endpoint — deleting the branch breaks the image in every bug report
+ever filed. `main` and `feedback-screenshots` are both listed in the workflow's
+`KEEP_BRANCHES` env var; add to it, don't trim it.
+
+Note that the keep-list is a deny-list, not an allow-list of disposable prefixes: a
+hand-made branch with no open PR will also be swept once it's two hours old. That's
+intentional for a repo whose branches are all machine-generated, but push a WIP branch here
+and it will not survive.
+
 ### One-time repo setup
 
 This repo uses a **Ruleset** (Settings → Rules → Rulesets), not classic branch protection.
