@@ -175,7 +175,7 @@ const unapproved = new Set(
 const knownIds = new Set(packs.map((pack) => pack.id));
 
 const approvalPrs = ghJson(
-  `pr list --state all --limit 200 --json number,headRefName,state,url`,
+  `pr list --state all --limit 200 --json number,headRefName,state,url,createdAt`,
 )
   .filter((pr) => pr.headRefName.startsWith(BRANCH_PREFIX))
   .map((pr) => ({
@@ -184,6 +184,40 @@ const approvalPrs = ghJson(
   }));
 
 sh(`git fetch origin ${baseBranch}`);
+
+// When did this pack's *current* incarnation land on the base branch? Newest add wins:
+// `git log -1 --diff-filter=A` walks newest-first, so for a pack that was removed from the
+// catalog and later re-submitted this is the re-add, not the original.
+//
+// Deliberately pack.json and not the packs/<id>/ folder: every "Edit datapack" that ships a
+// new audio file or photo is an *addition* under that folder, so a folder-level query dates
+// the pack to its last content addition rather than to its creation. Measured against real
+// history that made isha-default (created 2026-07-15, given more audio 2026-08-09) look newer
+// than its own approval PR — which would have re-raised approval PRs for packs that had
+// already been decided, i.e. the nagging this script is built to avoid. pack.json is written
+// once per incarnation and only ever modified afterwards.
+function packAddedAt(packId) {
+  const added = sh(
+    `git log -1 --diff-filter=A --format=%cI origin/${baseBranch} -- packs/${packId}/pack.json`,
+  );
+  return added === "" ? null : Date.parse(added);
+}
+
+// An approval decision is about the pack that was in front of the maintainer at the time, not
+// about the id forever. Deleting a pack and re-submitting it produces a genuinely new pack that
+// happens to reuse an id, and the old decision says nothing about it — but "already has an
+// approval PR" is keyed on id alone, so the stale record silently suppressed the new PR. That
+// is exactly what happened after the catalog was emptied: `test` (approved back then) and
+// `test2` (rejected back then) were re-added and never got approval PRs, because PRs #68 and
+// #58 still matched by id.
+//
+// A decision only binds if it was made after the incarnation it is about appeared. If we can't
+// date the pack, keep the old conservative behaviour and treat the decision as binding.
+function decisionIsStale(pr) {
+  const addedAt = packAddedAt(pr.packId);
+  if (addedAt === null) return false;
+  return addedAt > Date.parse(pr.createdAt);
+}
 
 // Pass 1: keep the open ones usable. A new pack merging rewrites every line of index.json,
 // which can leave an older approval PR conflicting against a base it no longer shares a useful
@@ -212,8 +246,18 @@ for (const pr of approvalPrs.filter((candidate) => candidate.state === "OPEN")) 
 // PR is a rejection, and re-opening one would nag the maintainer forever.
 const decided = new Set(approvalPrs.map((pr) => pr.packId));
 for (const packId of unapproved) {
-  const existing = approvalPrs.find((pr) => pr.packId === packId);
-  if (existing) {
+  // Explicitly the newest decision, not `find`'s first match: once a stale decision has been
+  // superseded by a freshly opened PR, the pack has two, and picking the older one again would
+  // reopen a duplicate on every run. Don't rely on `gh pr list` ordering for that.
+  const existing = [...approvalPrs]
+    .filter((pr) => pr.packId === packId)
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0];
+  if (existing && decisionIsStale(existing)) {
+    console.log(
+      `Re-opening approval for ${packId}: #${existing.number} (${existing.state}) decided ` +
+        `${existing.createdAt}, but the pack was re-added to the catalog after that`,
+    );
+  } else if (existing) {
     console.log(`Skipping ${packId}: already has an approval PR (#${existing.number}, ${existing.state})`);
     continue;
   }

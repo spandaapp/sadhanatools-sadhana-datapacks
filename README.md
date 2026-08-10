@@ -97,11 +97,29 @@ approval** — review the pack's contents in the PR that added it first. Nothing
 an approval PR modifies an existing entry, so `check-automerge-eligible.mjs` rejects it by
 design, and no special case exempts it.
 
+A submission also can't approve *itself*. The additive-only check proves that pre-existing
+entries are untouched and that exactly one entry appeared, but says nothing about what is
+*in* the new entry — so a PR whose new `index.json` entry declared `"approved": true` was a
+legal additive change, auto-merged, and was then skipped by the approval sweep (which only
+looks at packs not already flagged true), landing visible-by-default with no human in the
+loop. `approved`, `likes` and `downloads` must now be absent or default-valued on a newly
+added entry; anything else is rejected as a claim a submission can't make about itself.
+
 Three behaviours are worth knowing before touching this:
 
 - **Closing an approval PR without merging means "rejected."** The sweep looks at approval PRs
-  in *any* state, not just open ones, so a closed one is a permanent decision and no new PR
-  will be opened for that pack. Reopen it if you closed it by accident.
+  in *any* state, not just open ones, so a closed one is a decision and no new PR will be
+  opened for that pack. Reopen it if you closed it by accident.
+- **…but a decision only binds the pack it was made about.** Delete a pack and re-submit it
+  later and you get a genuinely new pack that happens to reuse an id, which the old decision
+  says nothing about. The sweep therefore ignores a decision made *before* the pack's current
+  incarnation landed, and opens a fresh PR. Without this, emptying the catalog and re-adding
+  `test` and `test2` produced no approval PRs at all — PRs #68 and #58 still matched by id, so
+  both packs sat unapproved and invisible with the workflow reporting success.
+  "When did this incarnation land" is the newest commit that *added* `packs/<id>/pack.json`,
+  not the pack folder: every edit shipping a new audio file counts as an addition under the
+  folder, which would date a pack to its last content change and re-raise approval PRs for
+  packs already decided.
 - **A stale approval PR is force-pushed in place, never closed and re-created.** A new pack
   merging rewrites every line of `index.json`, which can leave an older approval PR
   conflicting; re-parenting its branch onto current `main` is the only thing that clears that
