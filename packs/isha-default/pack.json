@@ -20,7 +20,8 @@
       "name": "SCK",
       "dailyTargetCycles": 2,
       "gracePeriodDays": 0,
-      "sortOrder": 2
+      "sortOrder": 2,
+      "streakTargetCount": 100
     },
     {
       "name": "Shambhavi",
@@ -32,7 +33,8 @@
       "name": "Shoonya",
       "dailyTargetCycles": 2,
       "gracePeriodDays": 0,
-      "sortOrder": 1
+      "sortOrder": 1,
+      "streakTargetCount": 42
     },
     {
       "name": "Surya Kriya",
@@ -100,8 +102,8 @@
     {
       "label": "Morning Sadhana",
       "type": "REGULAR",
-      "regularHour": 8,
-      "regularMinute": 1,
+      "regularHour": 16,
+      "regularMinute": 0,
       "intervalStartMinutesOfDay": 540,
       "intervalEndMinutesOfDay": 1020,
       "intervalChimeDurationMillis": 1000,
@@ -110,8 +112,8 @@
       "audioAlbumId": "00000000-0000-4000-a000-000000000001",
       "useRandomBackgroundAlbum": true,
       "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
-      "volume": 0.4865535795688629,
-      "fadeDurationSeconds": 9,
+      "volume": 1,
+      "fadeDurationSeconds": 15,
       "vibrate": false,
       "loopAudio": true,
       "androidFullScreenIntent": true,
@@ -135,7 +137,8 @@
       "audioAssetPath": "audio\/albums\/interval-ringtones\/Bell.mp3",
       "useRandomAlbum": false,
       "useRandomBackgroundAlbum": false,
-      "volume": 1,
+      "backgroundImagePath": "images\/albums\/nature\/nature_1.jpeg",
+      "volume": 0.4075692892074585,
       "fadeDurationSeconds": 0,
       "vibrate": false,
       "loopAudio": false,
@@ -145,9 +148,9 @@
       "showTodayEvents": true,
       "notificationTitle": "Reminder",
       "notificationBody": "Breath",
-      "enabled": true,
+      "enabled": false,
       "repeatWeekdaysMask": 127,
-      "interruptOngoingMedia": true,
+      "interruptOngoingMedia": false,
       "minRingSeconds": 0
     },
     {
@@ -155,12 +158,13 @@
       "type": "INTERVAL",
       "intervalMillis": 3600000,
       "intervalStartMinutesOfDay": 0,
-      "intervalEndMinutesOfDay": 1380,
+      "intervalEndMinutesOfDay": 1439,
       "intervalChimeDurationMillis": 1000,
       "audioAssetPath": "audio\/albums\/interval-ringtones\/Cling.mp3",
       "useRandomAlbum": false,
       "useRandomBackgroundAlbum": false,
-      "volume": 1,
+      "backgroundImagePath": "images\/albums\/nature\/nature_1.jpeg",
+      "volume": 0.7064992785453796,
       "fadeDurationSeconds": 0,
       "vibrate": false,
       "loopAudio": false,
@@ -188,8 +192,8 @@
       "audioAlbumId": "00000000-0000-4000-a000-000000000001",
       "useRandomBackgroundAlbum": true,
       "backgroundAlbumId": "00000000-0000-4000-a000-000000000002",
-      "volume": 1,
-      "fadeDurationSeconds": 0,
+      "volume": 0.5028383731842041,
+      "fadeDurationSeconds": 15,
       "vibrate": false,
       "loopAudio": true,
       "androidFullScreenIntent": true,
@@ -205,6 +209,7 @@
     }
   ],
   "widgets": [],
+  "widgetAssets": [],
   "audioAlbum": {
     "albumId": "00000000-0000-4000-a000-000000000001",
     "albumName": "Isha",
@@ -461,5 +466,10 @@
       }
     ]
   },
-  "icsAssets": []
+  "icsAssets": [
+    {
+      "assetPath": "packs\/isha-default\/ics\/isha_selected_events_v2.ics",
+      "fileName": "isha_selected_events_v2.ics"
+    }
+  ]
 }
