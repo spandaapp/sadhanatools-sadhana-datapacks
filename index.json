@@ -34,14 +34,6 @@
       "approved": false
     },
     {
-      "id": "test",
-      "displayName": "test",
-      "description": "",
-      "version": 1,
-      "manifestPath": "packs\/test\/pack.json",
-      "approved": true
-    },
-    {
       "id": "isha-default",
       "displayName": "Isha - Default",
       "description": "",
@@ -55,6 +47,14 @@
       "description": "",
       "version": 3,
       "manifestPath": "packs\/temp\/pack.json",
+      "approved": true
+    },
+    {
+      "id": "test",
+      "displayName": "test",
+      "description": "",
+      "version": 2,
+      "manifestPath": "packs\/test\/pack.json",
       "approved": true
     }
   ]
